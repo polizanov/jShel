@@ -90,6 +90,7 @@
     linear-gradient(to top, rgb(255, 255, 255), rgba(148, 134, 65, 0.2));
     background-color: rgb(228, 222, 196);
     display: flex;
+    position: relative;
     flex-direction: column;
 }
 
@@ -103,6 +104,14 @@
     border-top: 4px solid rgb(255, 255, 255);
     color: rgb(255, 255, 255);
     font-size: 30px;
+}
+
+.medal-icon {
+    position: absolute;
+    top: 100px;
+    right: -93px;
+    font-size: 200px;
+    color: rgba(255, 255, 255, 0.548);
 }
 
 .hotels-wrapper {
