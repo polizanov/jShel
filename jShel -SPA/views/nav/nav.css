@@ -1,0 +1,40 @@
+@import url('../body/body.css');
+
+/* navigation component */
+.nav-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.logo-wrap h4 {
+    font-size: 40px;
+    margin: 0px;
+}
+
+.center-ul,
+.right-ul {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+}
+
+.center-ul li,
+.right-ul li {
+    margin: 5px;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.center-ul li:hover,
+.right-ul li:hover {
+    background-color: rgb(228, 227, 227);
+}
+
+.center-ul li a,
+.right-ul li a {
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+}
