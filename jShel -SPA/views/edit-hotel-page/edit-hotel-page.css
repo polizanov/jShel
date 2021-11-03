@@ -2,8 +2,8 @@
 @import url('../nav/nav.css');
 @import url('../footer/footer.css');
 
-/* CREATE FORM COMPONENT */
-.add-hotel-wrapper {
+/* EDIT FORM COMPONENT */
+.edit-hotel-wrapper {
     border-radius: 30px;
     max-width: 45vw;
     margin: 50px auto;
@@ -12,7 +12,7 @@
     align-content: center;
     justify-content: space-between;
     background-image:
-    linear-gradient(to top, rgba(186, 189, 36, 0.2), rgba(56, 184, 24, 0.8)),
+    linear-gradient(to top, rgba(151, 153, 49, 0.2), rgba(199, 218, 30, 0.8)),
     url('../images/create-background.jpg');
     background-position: center;
     background-repeat: no-repeat;
@@ -21,7 +21,7 @@
     position: relative;
 }
 
-.add-hotel-wrapper form {
+.edit-hotel-wrapper form {
     display: flex;
     flex-direction: column;
     align-content: center;

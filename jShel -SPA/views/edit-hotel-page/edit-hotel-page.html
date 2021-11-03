@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./add-hotel-page.css">
-    <title>ADD HOTEL</title>
+    <link rel="stylesheet" href="./edit-hotel-page.css">
+    <title>Edit hotel page</title>
 </head>
 <body>
-    <!-- NAVIGATION COMPONENT -->
-    <header class="wrap">
+      <!-- NAVIGATION COMPONENT -->
+      <header class="wrap">
         <section class="nav-wrapper">
             <article class="logo-wrap">
                 <h4>jShel</h4>
@@ -64,25 +64,25 @@
 
     <main>
         <!-- CREATE FORM COMPONENT -->
-        <section class="add-hotel-wrapper">
+        <section class="edit-hotel-wrapper">
             <form>
                 <article class="form-header">
-                    <h1>ADD HOTEL</h1>
+                    <h1>EDIT HOTEL</h1>
                 </article>
                 <label for="name">
-                    <input type="text" name="name" placeholder="Add name">
+                    <input type="text" name="name" placeholder="Edit name">
                 </label>
                 <label for="imageUrl">
                     <input type="text" name="imageUrl" placeholder="Paste Image URL">
                 </label>
                 <label for="description">
-                    <input type="text" name="description" placeholder="Write description">
+                    <input type="text" name="description" placeholder="Edit description">
                 </label>
                 <label for="town">
-                    <input type="text" name="town" placeholder="Add town">
+                    <input type="text" name="town" placeholder="Edit town">
                 </label>
                 <label for="address">
-                    <input type="text" name="address" placeholder="Add address">
+                    <input type="text" name="address" placeholder="Edit address">
                 </label>
                 <select name="stars" id="stars" aria-placeholder="Select stars">
                     <option value="1">1</option>
@@ -95,10 +95,10 @@
                     Public
                     <input type="checkbox">
                 </label>
-                <input type="submit" value="CREATE">
+                <input type="submit" value="EDIT">
             </form>
             <article class="icon-wrapper">
-                <i class="fas fa-plus"></i>
+                <i class="fas fa-pencil-alt"></i>
             </article>
 
             <article class="error">
