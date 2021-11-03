@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./login-page.css">
-    <title>Login page</title>
+    <link rel="stylesheet" href="./register-page.css">
+    <title>Register page</title>
 </head>
 <body>
         <!-- NAVIGATION COMPONENT -->
@@ -63,12 +63,15 @@
         </header>
     
         <main>
-            <!-- LOGIN FORM COMPONENT -->
-            <section class="login-wrapper">
+            <!-- REGISTER FORM COMPONENT -->
+            <section class="register-wrapper">
                 <form>
                     <article class="form-header">
-                        <h1>LOGIN</h1>
+                        <h1>REGISTER</h1>
                     </article>
+                    <label for="email">
+                        <input type="text" name="email" placeholder="Email">
+                    </label>
                     <label for="username">
                         <input type="text" name="username" placeholder="Username">
                     </label>
@@ -77,13 +80,13 @@
                     </label>
                     <article class="helper">
                         <p>
-                            Don't have an account? <a href="#">Register now!</a>
+                            Already have an account? <a href="#">Login now!</a>
                         </p>
                     </article>
-                    <input type="submit" value="LOGIN">
+                    <input type="submit" value="REGISTER">
                 </form>
                 <article class="icon-wrapper">
-                    <i class="fas fa-user-lock"></i>
+                    <i class="far fa-id-card"></i>
                 </article>
     
                 <article class="error">
