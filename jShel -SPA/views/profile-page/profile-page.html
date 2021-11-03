@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./profile-page.css">
+    <title>Profile Page</title>
+</head>
+
+<body>
+    <!-- NAVIGATION COMPONENT -->
+    <header class="wrap">
+        <section class="nav-wrapper">
+            <article class="logo-wrap">
+                <h4>jShel</h4>
+            </article>
+
+            <article class="center-links">
+                <nav>
+                    <ul class="center-ul">
+                        <!-- All USERS -->
+                        <!-- FOR AUTHENTICATED AND GUEST ARE WITH DIFFERENT ROUTE AND PAGES -->
+                        <li>
+                            <a href="#">HOME</a>
+                        </li>
+
+                        <!-- AUTHENTICATED USERS -->
+                        <li>
+                            <a href="#">ADD HOTEL</a>
+                        </li>
+                        <li>
+                            <a href="#">MY PROFILE</a>
+                        </li>
+                        <li>
+                            <a href="#">FAVOURITES</a>
+                        </li>
+                    </ul>
+                </nav>
+            </article>
+
+            <article class="right-links">
+                <nav>
+                    <ul class="right-ul">
+                        <!-- GUEST USERS -->
+                        <li>
+                            <a href="#">LOGIN</a>
+                        </li>
+                        <li>
+                            <a href="#">REGISTER</a>
+                        </li>
+
+                        <!-- AUTHENTICATED USERS -->
+                        <li>
+                            <a href="#">HALLO @username</a>
+                        </li>
+                        <li>
+                            <a href="#">LOGOUT</a>
+                        </li>
+                    </ul>
+                </nav>
+            </article>
+        </section>
+    </header>
+
+    <main>
+        <!-- PROFILE PAGE COMPONENT -->
+        <section class="profile-page-wrap">
+            <section class="person-info">
+                <article class="person-image">
+                    <img src="../images/profile-avatar.jpg" alt="profile-avatar">
+                </article>
+                <article class="person-content">
+                    <h1>USERNAME</h1>
+                    <p>email</p>
+                    <p class="post">10 post</p>
+                </article>
+            </section>
+
+            <section class="person-data">
+                <!--MY AREA COMPONENT -->
+                <section class="my-area-component">
+                    <article class="component-header">
+                        <h1>MY HOTELS</h1>
+                    </article>
+
+                    <article class="hotel-icon">
+                        <i class="fas fa-hotel"></i>
+                    </article>
+
+                    <article class="wrap hotels-wrapper">
+                        <!-- CURRENT HOTEL COMPONENT -->
+                        <article class="hotel">
+                            <article class="hotel-image-wrap">
+                                <img src="https://pix10.agoda.net/hotelImages/124/1246280/1246280_16061017110043391702.jpg?s=1024x768"
+                                    alt="hotel">
+                            </article>
+                            <article class="hotel-content">
+                                <p id="center">Name</p>
+                                <p id="center">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </p>
+                                <article class="see-more-btn">
+                                    <a href="#">See more</a>
+                                </article>
+                            </article>
+
+                        </article>
+
+                        <!-- CURRENT HOTEL COMPONENT -->
+                        <article class="hotel">
+                            <article class="hotel-image-wrap">
+                                <img src="https://pix10.agoda.net/hotelImages/124/1246280/1246280_16061017110043391702.jpg?s=1024x768"
+                                    alt="hotel">
+                            </article>
+                            <article class="hotel-content">
+                                <p id="center">Name</p>
+                                <p id="center">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </p>
+                                <article class="see-more-btn">
+                                    <a href="#">See more</a>
+                                </article>
+                            </article>
+
+                        </article>
+
+                        <!-- CURRENT HOTEL COMPONENT -->
+                        <article class="hotel">
+                            <article class="hotel-image-wrap">
+                                <img src="https://pix10.agoda.net/hotelImages/124/1246280/1246280_16061017110043391702.jpg?s=1024x768"
+                                    alt="hotel">
+                            </article>
+                            <article class="hotel-content">
+                                <p id="center">Name</p>
+                                <p id="center">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </p>
+                                <article class="see-more-btn">
+                                    <a href="#">See more</a>
+                                </article>
+                            </article>
+
+                        </article>
+
+                        <!-- CURRENT HOTEL COMPONENT -->
+                        <article class="hotel">
+                            <article class="hotel-image-wrap">
+                                <img src="https://pix10.agoda.net/hotelImages/124/1246280/1246280_16061017110043391702.jpg?s=1024x768"
+                                    alt="hotel">
+                            </article>
+                            <article class="hotel-content">
+                                <p id="center">Name</p>
+                                <p id="center">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </p>
+                                <article class="see-more-btn">
+                                    <a href="#">See more</a>
+                                </article>
+                            </article>
+
+                        </article>
+
+                    </article>
+
+                </section>
+
+                <!-- NO DATA COMPONENT -->
+                <section class="no-data-component">
+                    <article class="info">
+                        <h1>Looks like you have no hotels yet!</h1>
+                        <p>Add the first one!</p>
+                        <article class="add-button">
+                            <a href="#">ADD HOTEL</a>
+                        </article>
+                    </article>
+
+                    <article class="no-data-wrap-icon">
+                        <i class="fas fa-database"></i>
+                    </article>
+                </section>
+            </section>
+
+        </section>
+    </main>
+
+    <!-- FOOTER COMPONENT -->
+    <footer>
+        <p>
+            Darin Polizanov &copy;
+        </p>
+    </footer>
+</body>
+
+</html>
