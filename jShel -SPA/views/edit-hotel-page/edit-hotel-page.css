@@ -12,8 +12,8 @@
     align-content: center;
     justify-content: space-between;
     background-image:
-    linear-gradient(to top, rgba(151, 153, 49, 0.2), rgba(199, 218, 30, 0.8)),
-    url('../images/create-background.jpg');
+    linear-gradient(to top, rgba(151, 153, 49, 0.2), rgba(0, 0, 0, 0.8)),
+    url('../images/create-form2.jpg');
     background-position: center;
     background-repeat: no-repeat;
     -webkit-box-shadow: 3px 4px 42px -10px rgba(0,0,0,0.91); 

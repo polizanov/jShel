@@ -1,0 +1,28 @@
+{
+  "name": "jshel---rest-api",
+  "version": "1.0.0",
+  "description": "REST SERVICE for jShel - SPA",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/polizanov/jShel.git"
+  },
+  "author": "Darin Polizanov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/polizanov/jShel/issues"
+  },
+  "homepage": "https://github.com/polizanov/jShel#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.0.12",
+    "nodemon": "^2.0.14",
+    "validator": "^13.7.0"
+  }
+}
