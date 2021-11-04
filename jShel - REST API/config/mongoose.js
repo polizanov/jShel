@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const {DB_PORT} = require("./index");
 
-mongoose.connect(`mongodb://localhost:${DB_PORT}/SELLit`, {
+mongoose.connect(`mongodb://localhost:${DB_PORT}/jShel`, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     autoIndex: false
