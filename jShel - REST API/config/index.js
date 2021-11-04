@@ -4,4 +4,5 @@ module.exports = {
     "JWT_SECRET": "so-secret",
     "SESSION": "sessiontoken",
     "SALT_ROUNDS": 11,
+    "IMAGE_URL_PATTERN": /https?/,
 }

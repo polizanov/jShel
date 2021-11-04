@@ -12,6 +12,7 @@ module.exports = (req, res, next) => {
             }
 
             res.locals.user = decoded;
+            console.log(decoded)
         })
     }
 

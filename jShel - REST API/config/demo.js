@@ -1,5 +1,9 @@
 console.log(JSON.stringify({
-    email: "justtest",
-    username: "test01",
-    password: "12341234",
+    name: "Just Test",
+    imageUrl: "https://dfsdfsdfsdfsdfsfsdfsfsdfsdfd",
+    description: "demodemodemodeodmedmeodoedoedemd",
+    town: "town-name",
+    stars: 3,
+    address: "address-name",
+    public: false
 }))
