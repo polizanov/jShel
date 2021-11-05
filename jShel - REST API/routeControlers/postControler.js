@@ -32,7 +32,7 @@ router.get("/details/:id", async (req, res) => {
     }
 })
 
-router.post("/create", isAuth, async (req, res) => {
+router.post("/create-hotel", isAuth, async (req, res) => {
     try {
         let data = await postService.createHotel(req.body, res.locals.user.id);
         res.status(201).json({message: "Created", objectId: data._id});
@@ -41,7 +41,7 @@ router.post("/create", isAuth, async (req, res) => {
     }
 })
 
-router.post("/edit/:hotelId", isAuth, async (req, res) => {
+router.put("/edit-hotel/:hotelId", isAuth, async (req, res) => {
     try {
         let data = await postService.editHotel(req.body, res.locals.user.id, req.params.hotelId);
         res.status(201).json({message: "Created", objectId: data._id});
