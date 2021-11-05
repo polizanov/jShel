@@ -2,7 +2,6 @@ const { Router } = require("express");
 const router = Router();
 
 const postService = require("../services/postService");
-profileService = require("../services/profileService");
 
 const isAuth = require("../middlewares/isAuth");
 
@@ -65,26 +64,7 @@ router.post("/like-hotel/:hotelId", isAuth, async (req, res) => {
         let data = await postService.likeHotel(res.locals.user.id, req.params.hotelId);
         res.status(201).json({message: "Liked", objectId: data._id});
     } catch (err) {
-        console.log(err)
         res.status(400).json({message: err.message});
-    }
-})
-
-router.get("/profile", isAuth, async (req, res) => {
-    try {
-        let data = await profileService.getProfilePosts(res.locals.user.id);
-        res.status(201).json(data);
-    } catch (err) {
-        res.status(400).json({ message: err.message });
-    }
-})
-
-router.get("/my-favourite", isAuth, async (req, res) => {
-    try {
-        let data = await profileService.getFavourites(res.locals.user.id);
-        res.status(201).json(data);
-    } catch (err) {
-        res.status(400).json({ message: err.message });
     }
 })
 
