@@ -1,0 +1,33 @@
+.navWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.logoWrapH4Header {
+    font-size: 40px;
+    margin: 0px;
+}
+
+.center {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+}
+
+.listItem {
+    margin: 5px;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.listItem:hover {
+    background-color: rgb(228, 227, 227);
+}
+
+.link {
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+}
