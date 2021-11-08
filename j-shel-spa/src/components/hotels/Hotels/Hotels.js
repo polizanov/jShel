@@ -2,7 +2,7 @@ import styles from './Hotels.module.css';
 import Hotel from '../Hotel/Hotel'
 import hotelsStyle from '../styles/hotels';
 
-const Hotels = ({type, header}) => {
+const Hotels = ({type, header, data}) => {
     return (
         <section className={["wrap", hotelsStyle[type].areaComponent].join(" ")}>
             <article className={styles.headerWrapper}>
@@ -12,7 +12,9 @@ const Hotels = ({type, header}) => {
             {hotelsStyle[type].icon()}
 
             <article className={["wrap", styles.hotelsWrapper].join(" ")}>
-                <Hotel type={type} />
+                {
+                    data.map(x => <Hotel type={type} data={x} />)
+                }
             </article>
         </section>
     )

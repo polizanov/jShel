@@ -14,8 +14,8 @@ const hotelsStyle = {
         areaComponent: styles.areaComponent,
         header: styles.header,
         icon: () => (
-            <article class="hotel-icon">
-                <i class="fas fa-hotel"></i>
+            <article className="hotel-icon">
+                <i className="fas fa-hotel"></i>
             </article>
         )
     }
