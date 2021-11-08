@@ -2,17 +2,17 @@ import styles from './Hotels.module.css';
 import Hotel from '../Hotel/Hotel'
 import hotelsStyle from '../styles/hotels';
 
-const Hotels = (props) => {
+const Hotels = ({type, header}) => {
     return (
-        <section className={["wrap", hotelsStyle[props.type].areaComponent].join(" ")}>
+        <section className={["wrap", hotelsStyle[type].areaComponent].join(" ")}>
             <article className={styles.headerWrapper}>
-                <h1 className={hotelsStyle[props.type].header}>{props.header}</h1>
+                <h1 className={hotelsStyle[type].header}>{header}</h1>
             </article>
 
-            {hotelsStyle[props.type].icon()}
+            {hotelsStyle[type].icon()}
 
             <article className={["wrap", styles.hotelsWrapper].join(" ")}>
-                <Hotel type={props.type} />
+                <Hotel type={type} />
             </article>
         </section>
     )

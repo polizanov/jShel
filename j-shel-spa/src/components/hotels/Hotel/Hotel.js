@@ -1,9 +1,9 @@
 import styles from './Hotel.module.css'
 import hotelStyle from '../styles/hotel'
 
-const Hotel = (props) => {
+const Hotel = ({ type }) => {
     return (
-        <article className={hotelStyle[props.type].hotel}>
+        <article className={hotelStyle[type].hotel}>
             <article className={styles.imgageWrap}>
                 <img className={styles.img} src="https://codedesign.org/storage/app/media/uploaded-files/digital-marketing-for-hotels.jpg"
                     alt="hotel" />
@@ -17,7 +17,7 @@ const Hotel = (props) => {
                     <i class="fas fa-star"></i>
                 </p>
                 <article className={styles.seeMoreBtn}>
-                    <a className={hotelStyle[props.type].link} href="#">See more</a>
+                    <a className={hotelStyle[type].link} href="#">See more</a>
                 </article>
             </article>
         </article>

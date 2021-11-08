@@ -29,3 +29,12 @@ body {
     font-size: 200px;
     color: rgba(129, 119, 119, 0.397);
 }
+
+.no-data-wrap-icon {
+    padding-bottom: 50px;
+}
+
+.no-data-wrap-icon i {
+    font-size: 150px;
+    color: rgba(168, 28, 28, 0.603);
+}
