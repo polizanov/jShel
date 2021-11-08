@@ -5,50 +5,50 @@ const Header = () => {
     return (
         <header className="wrap">
         <section className={styles.navWrapper}>
-            <article className={styles.logoWrapH4Header}>
+            <article className={styles.header}>
                 <h4>jShel</h4>
             </article>
         
             <article>
                     <nav>
-                        <ul class={styles.center}>
+                        <ul className={styles.center}>
                             {/* All USERS */}
                             {/* FOR AUTHENTICATED AND GUEST ARE WITH DIFFERENT ROUTE AND PAGES */}
-                            <li class={styles.listItem}>
-                                <a class={styles.link} href="#">HOME</a>
+                            <li className={styles.listItem}>
+                                <a className={styles.link} href="#">HOME</a>
                             </li>
             
                             {/* <!-- AUTHENTICATED USERS --> */}
-                            <li class={styles.listItem}>
-                                <a class={styles.link} href="#">ADD HOTEL</a>
+                            <li className={styles.listItem}>
+                                <a className={styles.link} href="#">ADD HOTEL</a>
                             </li>
-                            <li class={styles.listItem}>
-                                <a class={styles.link} href="#">MY PROFILE</a>
+                            <li className={styles.listItem}>
+                                <a className={styles.link} href="#">MY PROFILE</a>
                             </li>
-                            <li class={styles.listItem}>
-                                <a class={styles.link} href="#">FAVOURITES</a>
+                            <li className={styles.listItem}>
+                                <a className={styles.link} href="#">FAVOURITES</a>
                             </li>
                         </ul>
                     </nav>
             </article>
         
-            <article class="right-links">
+            <article className="right-links">
                 <nav>
-                    <ul class={styles.center}> 
+                    <ul className={styles.center}> 
                         {/* <!-- GUEST USERS --> */}
-                        <li class={styles.listItem}>
-                            <a class={styles.link} href="#">LOGIN</a>
+                        <li className={styles.listItem}>
+                            <a className={styles.link} href="#">LOGIN</a>
                         </li>
-                        <li class={styles.listItem}>
-                            <a class={styles.link} href="#">REGISTER</a>
+                        <li className={styles.listItem}>
+                            <a className={styles.link} href="#">REGISTER</a>
                         </li>
         
                         {/* <!-- AUTHENTICATED USERS --> */}
-                        <li class={styles.listItem}>
-                            <a class={styles.link} href="#">HALLO @username</a>
+                        <li className={styles.listItem}>
+                            <a className={styles.link} href="#">HALLO @username</a>
                         </li>
-                        <li class={styles.listItem}> 
-                            <a class={styles.link} href="#">LOGOUT</a>
+                        <li className={styles.listItem}> 
+                            <a className={styles.link} href="#">LOGOUT</a>
                         </li>
                     </ul>
                 </nav>
