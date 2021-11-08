@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <Hotels header="Gold Area" type="normal" />
+      <Hotels header="Gold Area" type="gold" />
       <Footer />
     </div>
   );
