@@ -6,7 +6,7 @@ const Header = () => {
         <header className="wrap">
         <section className={styles.navWrapper}>
             <article className={styles.header}>
-                <h4>jShel</h4>
+                <h4 className={styles.headerContenr}>jShel</h4>
             </article>
         
             <article>

@@ -10,6 +10,10 @@
     margin: 0px;
 }
 
+.headerContenr {
+    margin: 30px;
+}
+
 .center {
     display: flex;
     flex-wrap: wrap;

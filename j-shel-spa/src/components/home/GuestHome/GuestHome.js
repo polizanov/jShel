@@ -4,7 +4,7 @@ import styles from './GuestHome.module.css';
 import Hotels from '../../hotels/Hotels/Hotels';
 import NoData from '../../hotels/NoData/NoData';
 
-import goldenAreaService from '../../../services/hotel/goldenAreaService';
+import { goldenAreaService } from '../../../services/hotelService';
 
 class GuestHome extends Component {
     constructor(props) {

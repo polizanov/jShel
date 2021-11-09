@@ -1,6 +1,7 @@
 const hotel = {
     allHotels: "/",
-    goldenArea: "/gold-area"
+    goldenArea: "/gold-area",
+    details: "/details"
 }
 
 export default hotel;
