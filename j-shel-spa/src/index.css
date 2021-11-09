@@ -38,3 +38,13 @@ body {
     font-size: 150px;
     color: rgba(168, 28, 28, 0.603);
 }
+
+
+.icon-wrapper {
+    align-self: flex-end;
+}
+
+.icon-wrapper i {
+    font-size: 150px;
+    color: rgba(255, 255, 255, 0.555);
+}

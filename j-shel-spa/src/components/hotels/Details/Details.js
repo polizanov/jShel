@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { getDetails } from '../../services/hotelService'
+import { getDetails } from '../../../services/hotelService'
 import styles from './Details.module.css';
 
 
