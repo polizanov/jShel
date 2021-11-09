@@ -2,10 +2,10 @@ import styles from "./EditHotel.module.css";
 
 const EditHotel = () => {
     return (
-        <section class={styles.wrapper}>
-            <form class={styles.form}>
-                <article class="form-header">
-                    <h1 class={styles.header}>EDIT HOTEL</h1>
+        <section className={styles.wrapper}>
+            <form classNaame={styles.form}>
+                <article className="form-header">
+                    <h1 className={styles.header}>EDIT HOTEL</h1>
                 </article>
                 <label for="name">
                     <input className={styles.typeText} type="text" name="name" placeholder="Add name" />
@@ -35,8 +35,8 @@ const EditHotel = () => {
                 </label>
                 <input className={styles.submit} type="submit" value="EDIT" />
             </form>
-            <article class="icon-wrapper">
-                <i class="fas fa-pencil-alt"></i>
+            <article className="icon-wrapper">
+                <i className="fas fa-pencil-alt"></i>
             </article>
 
             <article className={styles.error}>

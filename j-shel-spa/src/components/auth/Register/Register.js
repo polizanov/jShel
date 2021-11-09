@@ -24,8 +24,8 @@ const Register = () => {
                     </article>
                     <input className={styles.submit} type="submit" value="REGISTER" />
                 </form>
-                <article class="icon-wrapper">
-                    <i class="far fa-id-card"></i>
+                <article className="icon-wrapper">
+                    <i className="far fa-id-card"></i>
                 </article>
     
                 <article className={styles.error}>

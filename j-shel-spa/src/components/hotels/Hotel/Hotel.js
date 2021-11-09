@@ -7,6 +7,8 @@ const Hotel = ({ type, data }) => {
         return <i className="fas fa-star"></i>
     }
 
+    console.log(data)
+
     return (
         <article className={hotelStyle[type].hotel}>
             <article className={styles.imgageWrap}>

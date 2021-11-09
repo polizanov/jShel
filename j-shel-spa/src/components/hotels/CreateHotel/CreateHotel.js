@@ -2,10 +2,10 @@ import styles from "./Create.module.css";
 
 const CreateHotel = () => {
     return (
-        <section class={styles.wrapper}>
-            <form class={styles.form}>
-                <article class="form-header">
-                    <h1 class={styles.header}>ADD HOTEL</h1>
+        <section className={styles.wrapper}>
+            <form className={styles.form}>
+                <article className="form-header">
+                    <h1 className={styles.header}>ADD HOTEL</h1>
                 </article>
                 <label for="name">
                     <input className={styles.typeText} type="text" name="name" placeholder="Add name" />
@@ -35,8 +35,8 @@ const CreateHotel = () => {
                 </label>
                 <input className={styles.submit} type="submit" value="CREATE" />
             </form>
-            <article class="icon-wrapper">
-                <i class="fas fa-plus"></i>
+            <article className="icon-wrapper">
+                <i className="fas fa-plus"></i>
             </article>
 
             <article className={styles.error}>
