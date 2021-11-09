@@ -18,7 +18,7 @@ function App() {
     <div className="App">
       <Header />
         <main>
-          <ProfilePage />
+          <GuestHome />
         </main>
       <Footer />
     </div>

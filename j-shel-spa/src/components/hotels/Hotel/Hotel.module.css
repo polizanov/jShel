@@ -21,6 +21,18 @@
     box-shadow: 0px 19px 32px -10px rgba(0,0,0,0.42);
 }
 
+.favouriteHotel {
+    background-image:
+    linear-gradient(to top, rgb(255, 255, 255, 1), rgba(212, 198, 198, 0.2));
+    width: 300px;
+    height: 350px;
+    margin: 0px 10px 30px 10px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    -webkit-box-shadow: 0px 19px 32px -10px rgba(211, 35, 35, 0.2); 
+    box-shadow: 0px 19px 32px -10px rgba(211, 35, 35, 0.2);
+}
+
 .imageWrap {
     display: flex;
     flex-direction: column;
@@ -66,5 +78,17 @@
     color: white;
 }
 
+
+.favouriteLink {
+    border-radius: 8px;
+    padding: 5px;
+    text-decoration: none;
+    color: rgba(211, 35, 35, 0.2);
+}
+
+.favouriteLink:hover {
+    background-color: rgba(211, 35, 35, 0.2);
+    color: white;
+}
 
 

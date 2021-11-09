@@ -18,7 +18,16 @@ const hotelsStyle = {
                 <i className="fas fa-hotel"></i>
             </article>
         )
-    }
+    },
+    favourite: {
+        areaComponent: styles.favouriteArea,
+        header: styles.goldenHeader,
+        icon: () => (
+            <article class="heart-icon">
+                <i class="far fa-heart"></i>
+            </article>
+        )
+    },
 }
 
 export default hotelsStyle;

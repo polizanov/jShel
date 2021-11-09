@@ -8,6 +8,10 @@ const hotelStyle = {
     normal: {
         hotel: styles.hotel,
         link: styles.link,
+    },
+    favourite: {
+        hotel: styles.favouriteHotel,
+        link: styles.favouriteLink,
     }
 }
 

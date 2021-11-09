@@ -16,6 +16,16 @@
     overflow: hidden;
 }
 
+.favouriteArea {
+    background-image:
+    linear-gradient(to top, rgb(255, 255, 255), rgba(211, 35, 35, 0.2));
+    background-color: rgb(228, 222, 196);
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    overflow: hidden;
+}
+
 .headerWrapper {
     display: flex;
     justify-content: space-around;
