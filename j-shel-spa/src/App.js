@@ -7,6 +7,7 @@ import Details from './components/hotels/Details/Details';
 import Login from './components/auth/Login/Login';
 import Register from './components/auth/Register/Register';
 import CreateHotel from './components/hotels/CreateHotel/CreateHotel';
+import EditHotel from './components/hotels/EditHotel/EditHotel';
 
 import Hotels from './components/hotels/Hotels/Hotels';
 import NoData from './components/hotels/NoData/NoData';
@@ -16,7 +17,7 @@ function App() {
     <div className="App">
       <Header />
         <main>
-          <CreateHotel />
+          <EditHotel />
         </main>
       <Footer />
     </div>
