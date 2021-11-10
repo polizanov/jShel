@@ -13,7 +13,7 @@ const Hotels = ({type, header, data}) => {
 
             <article className={["wrap", styles.hotelsWrapper].join(" ")}>
                 {
-                    data.map(x => <Hotel key={data._id} type={type} data={x} />)
+                    data.map(x => <Hotel key={x._id} type={type} data={x} />)
                 }
             </article>
         </section>

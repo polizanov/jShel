@@ -1,14 +1,9 @@
 import styles from './Hotel.module.css'
 import hotelStyle from '../styles/hotel'
+import { Link } from 'react-router-dom'
+import rendStars from '../tools/rendStars'
 
 const Hotel = ({ type, data }) => {
-
-    function rendStar(){
-        return <i className="fas fa-star"></i>
-    }
-
-    console.log(data)
-
     return (
         <article className={hotelStyle[type].hotel}>
             <article className={styles.imgageWrap}>
@@ -18,13 +13,12 @@ const Hotel = ({ type, data }) => {
             <article>
                 <p className={styles.center}>{data.name}</p>
                 <p className={styles.center}>
-                    <i className="fas fa-star"></i>
-                    <i className="fas fa-star"></i>
-                    <i className="fas fa-star"></i>
-                    <i className="fas fa-star"></i>
+                    {rendStars(data.stars).map(x => {
+                        return <i className="fas fa-star"></i>
+                    })}
                 </p>
                 <article className={styles.seeMoreBtn}>
-                    <a className={hotelStyle[type].link} href="#">See more</a>
+                    <Link to={["/details/", data._id].join("")} className={hotelStyle[type].link}>See more</Link>
                 </article>
             </article>
         </article>

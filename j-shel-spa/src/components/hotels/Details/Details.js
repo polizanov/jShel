@@ -1,15 +1,15 @@
 import { useEffect, useState } from 'react';
 import { getDetails } from '../../../services/hotelService'
+import { useLocation } from 'react-router';
 import styles from './Details.module.css';
+import rendStars from '../tools/rendStars';
 
-
-
-const Details = ({hotelId}) => {
+const Details = () => {
+    const id = useLocation().pathname.split("/").pop()
+    
     let [details, setDetails] = useState({});
 
-    useEffect(async () => setDetails(await getDetails(hotelId)), [])
-
-    console.log(details.likes?.length)
+    useEffect(async () => setDetails(await getDetails(id)), []);
 
     return (
         <section className={styles.detailsComponent}>
@@ -32,10 +32,13 @@ const Details = ({hotelId}) => {
                         </li>
                     </ul>
                     <p>
+                        {/* <i className={['fas', 'fa-star', styles.stars].join(" ")}></i>
                         <i className={['fas', 'fa-star', styles.stars].join(" ")}></i>
                         <i className={['fas', 'fa-star', styles.stars].join(" ")}></i>
-                        <i className={['fas', 'fa-star', styles.stars].join(" ")}></i>
-                        <i className={['fas', 'fa-star', styles.stars].join(" ")}></i>
+                        <i className={['fas', 'fa-star', styles.stars].join(" ")}></i> */}
+                        {rendStars(details.stars).map(x => {
+                           return <i className={['fas', 'fa-star', styles.stars].join(" ")}></i>
+                        })}
                     </p>
                 </article>
                 <article>

@@ -23,10 +23,12 @@ function App() {
       <main>
           <Routes>
             <Route path="/" exact element={<GuestHome/>}/>
+            <Route path="/details/:hotelId" exact element={<Details/>}/>
             <Route path="/login" exact element={<Login/>} />
             <Route path="/register" exact element={<Register/>}/>
             <Route path="/create" exact element={<CreateHotel/>}/>
             <Route path="/edit/:hotelId" exact element={<EditHotel/>}/>
+            <Route path="/my-profile" exact element={<ProfilePage/>}/>
           </Routes>
       </main>
       <Footer />

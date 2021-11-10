@@ -1,4 +1,5 @@
 import styles from './Header.module.css';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
 
@@ -15,15 +16,15 @@ const Header = () => {
                             {/* All USERS */}
                             {/* FOR AUTHENTICATED AND GUEST ARE WITH DIFFERENT ROUTE AND PAGES */}
                             <li className={styles.listItem}>
-                                <a className={styles.link} href="#">HOME</a>
+                                <Link to="/" className={styles.link}>HOME</Link>
                             </li>
             
                             {/* <!-- AUTHENTICATED USERS --> */}
                             <li className={styles.listItem}>
-                                <a className={styles.link} href="#">ADD HOTEL</a>
+                                <Link to="/create" className={styles.link}>ADD HOTEL</Link>
                             </li>
                             <li className={styles.listItem}>
-                                <a className={styles.link} href="#">MY PROFILE</a>
+                                <Link to="/my-profile" className={styles.link}>MY PROFILE</Link>
                             </li>
                             <li className={styles.listItem}>
                                 <a className={styles.link} href="#">FAVOURITES</a>
@@ -37,10 +38,10 @@ const Header = () => {
                     <ul className={styles.center}> 
                         {/* <!-- GUEST USERS --> */}
                         <li className={styles.listItem}>
-                            <a className={styles.link} href="#">LOGIN</a>
+                            <Link to="/login" className={styles.link} >LOGIN</Link>
                         </li>
                         <li className={styles.listItem}>
-                            <a className={styles.link} href="#">REGISTER</a>
+                            <Link to="/register" className={styles.link} >REGISTER</Link>
                         </li>
         
                         {/* <!-- AUTHENTICATED USERS --> */}
