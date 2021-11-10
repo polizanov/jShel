@@ -3,11 +3,11 @@ import styles from "./EditHotel.module.css";
 const EditHotel = () => {
     return (
         <section className={styles.wrapper}>
-            <form classNaame={styles.form}>
+            <form className={styles.form}>
                 <article className="form-header">
                     <h1 className={styles.header}>EDIT HOTEL</h1>
                 </article>
-                <label for="name">
+                <label htmlFor="name">
                     <input className={styles.typeText} type="text" name="name" placeholder="Add name" />
                 </label>
                 <label for="imageUrl">

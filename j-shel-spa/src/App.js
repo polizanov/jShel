@@ -2,6 +2,9 @@ import './App.css';
 import Header from './components/root/Header/Header';
 import Footer from './components/root/Footer/Footer';
 
+import { Route, Routes, Link, Redirect} from 'react-router-dom';
+
+
 import GuestHome from './components/home/GuestHome/GuestHome';
 import Details from './components/hotels/Details/Details';
 import Login from './components/auth/Login/Login';
@@ -17,9 +20,15 @@ function App() {
   return (
     <div className="App">
       <Header />
-        <main>
-          <GuestHome />
-        </main>
+      <main>
+          <Routes>
+            <Route path="/" exact element={<GuestHome/>}/>
+            <Route path="/login" exact element={<Login/>} />
+            <Route path="/register" exact element={<Register/>}/>
+            <Route path="/create" exact element={<CreateHotel/>}/>
+            <Route path="/edit/:hotelId" exact element={<EditHotel/>}/>
+          </Routes>
+      </main>
       <Footer />
     </div>
   );
