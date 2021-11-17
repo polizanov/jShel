@@ -1,15 +1,19 @@
 import { useEffect, useState } from 'react';
 import { getDetails } from '../../../services/hotelService'
-import { useLocation } from 'react-router';
+import { useParams } from 'react-router';
 import styles from './Details.module.css';
 import rendStars from '../tools/rendStars';
 
 const Details = () => {
-    const id = useLocation().pathname.split("/").pop()
-    
+    const id = useParams().hotelId;
+
     let [details, setDetails] = useState({});
 
-    useEffect(async () => setDetails(await getDetails(id)), []);
+    useEffect(async () => {
+        let data = await getDetails(id);
+        setDetails(data);
+    }, []);
+
 
     return (
         <section className={styles.detailsComponent}>
@@ -37,7 +41,7 @@ const Details = () => {
                         <i className={['fas', 'fa-star', styles.stars].join(" ")}></i>
                         <i className={['fas', 'fa-star', styles.stars].join(" ")}></i> */}
                         {rendStars(details.stars).map(x => {
-                           return <i className={['fas', 'fa-star', styles.stars].join(" ")}></i>
+                            return <i key={`${details.name}${details.town}${x}`} className={['fas', 'fa-star', styles.stars].join(" ")}></i>
                         })}
                     </p>
                 </article>

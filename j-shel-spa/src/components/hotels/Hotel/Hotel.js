@@ -14,7 +14,7 @@ const Hotel = ({ type, data }) => {
                 <p className={styles.center}>{data.name}</p>
                 <p className={styles.center}>
                     {rendStars(data.stars).map(x => {
-                        return <i className="fas fa-star"></i>
+                        return <i key={`${data.name}${data.town}${x}`} className="fas fa-star"></i>
                     })}
                 </p>
                 <article className={styles.seeMoreBtn}>
