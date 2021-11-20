@@ -26,10 +26,20 @@ export function getAuthEmail() {
 }
 
 export function login(data) {
-    return fetch(`${url}/${auth.login}`, getOptions('post', data))
-        .then(err => {
-            throw { "message": err.message }
+    return fetch(`${url}${auth.login}`, getOptions('post', data))
+        .then(res => {
+            if (!res.ok) {
+                return res.json()
+                .then(err => {
+                    throw err
+                })
+            }
+            return res.json()
         })
+        .catch(err => {
+            throw err
+        })
+
 }
 
 export function register(data) {

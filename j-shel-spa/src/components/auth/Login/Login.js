@@ -1,12 +1,15 @@
 import styles from './Login.module.css';
 import { useState } from 'react';
+import { useNavigate } from "react-router-dom"
 import { validateLogin } from '../../../services/validate/loginValidateService';
 import FormError from '../../error/FormError/FormError';
+import { login, setUserAuthData } from '../../../services/authService'
 
 const Login = ({
     setUsername
 }) => {
     const [errorArr, setErrorArr] = useState([]);
+    const navigate = useNavigate();
 
     const onLoginSubmitHandler = (e) => {
         e.preventDefault();
@@ -18,6 +21,18 @@ const Login = ({
         } catch (err) {
             setErrorArr(err.messages)
         }
+
+
+        login({ username, password })
+            .then(res => {
+                setUserAuthData(res.sessionToken, res.objectId, res.username, res.email);
+                setUsername(res.username);
+                navigate('/create');
+            })
+            .catch(err => {
+                setErrorArr([err.message])
+            })
+
 
         console.log(username);
         console.log(password);
