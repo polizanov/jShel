@@ -4,17 +4,17 @@ const Register = () => {
 
     return (
         <section className={styles.registerWrapper}>
-                <form className={styles.form}>
+                <form  className={styles.form}>
                     <article>
                         <h1 className={styles.header}>REGISTER</h1>
                     </article>
-                    <label for="email">
+                    <label htmlFor="email">
                         <input className={styles.textPassword} type="text" name="email" placeholder="Email" />
                     </label>
-                    <label for="username">
+                    <label htmlFor="username">
                         <input className={styles.textPassword} type="text" name="username" placeholder="Username" />
                     </label>
-                    <label for="password">
+                    <label htmlFor="password">
                         <input className={styles.textPassword} type="password" name="password" placeholder="Password" />
                     </label>
                     <article>

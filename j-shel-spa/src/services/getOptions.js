@@ -1,17 +1,24 @@
-export default function getOptions(method="get", body) {
+import { getAuthToken } from './authService'
+
+function getOprtions (method = "get", body){
     let options = {
         method,
-        headers: {}
+        headers: {
+            "Content-Type": "application/json"
+        },
     }
 
-    if(getAuthToken() !== null){
-        options.headers['sessionToken'] = getAuthToken();
+    let token = getAuthToken();
+
+    if (token !== null) {
+        options.headers['sessionToken'] = token;
     }
 
-    if(body) {
-        options.headers['Content-Type'] = 'application/json',
-        options.body = JSON.stringify(body);
+    if (body) {
+            options.body = JSON.stringify(body);
     }
 
     return options;
 }
+
+export default getOprtions;

@@ -1,0 +1,13 @@
+.error {
+    position: absolute;
+    top: 50px;
+    right: 25px;
+}
+
+.element {
+    padding: 5px 10px;
+    margin: 10px;
+    border-radius: 10px;
+    color: white;
+    background-color: rgba(179, 23, 23, 0.555);
+}
