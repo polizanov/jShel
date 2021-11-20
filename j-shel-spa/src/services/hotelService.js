@@ -1,5 +1,5 @@
 import hotelLinks from "./api-links/hotelLinks";
-import port from "./api-links/port";
+import url from "./api-links/url";
 
 function goldenAreaService() {
     return fetch(`${port}${hotelLinks.goldenArea}`)
