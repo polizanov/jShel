@@ -1,55 +1,14 @@
 import styles from './Header.module.css';
 import { Link } from 'react-router-dom';
 
+import GuestFromAuthSection from './sections/GuestFromAuthSection';
+import GuestFromMenuSection from './sections/GuestFromMenuSection';
+import UsersFromAuthSection from './sections/UsersFromAuthSection';
+import UsersFromMenuSection from './sections/UsersFromMenuSection';
+
 const Header = ({
     username
 }) => {
-
-    const guestFromAuthSection = (
-        <>
-            <li className={styles.listItem}>
-                <Link to="/login" className={styles.link} >LOGIN</Link>
-            </li>
-            <li className={styles.listItem}>
-                <Link to="/register" className={styles.link} >REGISTER</Link>
-            </li>
-        </>
-    )
-
-    const usersFromAuthSection = (
-        <>
-            <li className={styles.listItem}>
-                <a className={styles.link} href="#">HALLO {username}</a>
-            </li>
-            <li className={styles.listItem}>
-                <a className={styles.link} href="#">LOGOUT</a>
-            </li>
-        </>
-    )
-
-    const guestFromMenuSection = (
-        <li className={styles.listItem}>
-            <Link to="/" className={styles.link}>HOME</Link>
-        </li>
-    )
-
-    const usersFromMenuSection = (
-        <>
-            <li className={styles.listItem}>
-                <Link to="/home" className={styles.link}>HOME</Link>
-            </li>
-
-            <li className={styles.listItem}>
-                <Link to="/create" className={styles.link}>ADD HOTEL</Link>
-            </li>
-            <li className={styles.listItem}>
-                <Link to="/my-profile" className={styles.link}>MY PROFILE</Link>
-            </li>
-            <li className={styles.listItem}>
-                <a className={styles.link} href="#">FAVOURITES</a>
-            </li>
-        </>
-    )
 
     return (
         <header className="wrap">
@@ -61,7 +20,7 @@ const Header = ({
                 <article>
                     <nav>
                         <ul className={styles.center}>
-                            {username ? usersFromMenuSection : guestFromMenuSection}
+                            {username ? <UsersFromMenuSection /> : <GuestFromMenuSection />}
                         </ul>
                     </nav>
                 </article>
@@ -69,7 +28,7 @@ const Header = ({
                 <article className="right-links">
                     <nav>
                         <ul className={styles.center}>
-                            {username ? usersFromAuthSection : guestFromAuthSection}
+                            {username ? <UsersFromAuthSection username={username} /> : <GuestFromAuthSection />}
                         </ul>
                     </nav>
                 </article>
