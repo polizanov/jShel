@@ -26,7 +26,7 @@ function App() {
 
   return (
     <div className="App">
-      <Header username={username}  />
+      <Header username={username} setUsername={setUsername} />
       <main>
         <Routes>
           <Route path="/" exact element={<GuestHome />} />

@@ -7,7 +7,8 @@ import UsersFromAuthSection from './sections/UsersFromAuthSection';
 import UsersFromMenuSection from './sections/UsersFromMenuSection';
 
 const Header = ({
-    username
+    username,
+    setUsername,
 }) => {
 
     return (
@@ -28,7 +29,7 @@ const Header = ({
                 <article className="right-links">
                     <nav>
                         <ul className={styles.center}>
-                            {username ? <UsersFromAuthSection username={username} /> : <GuestFromAuthSection />}
+                            {username ? <UsersFromAuthSection username={username} setUsername={setUsername} /> : <GuestFromAuthSection />}
                         </ul>
                     </nav>
                 </article>

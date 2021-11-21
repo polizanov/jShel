@@ -9,6 +9,10 @@ export function setUserAuthData(token, userId, username, email) {
     localStorage.setItem("email", email);
 }
 
+export function clearUserData(){
+    localStorage.clear();
+}
+
 export function getAuthToken() {
     return localStorage.getItem("sessionToken");
 }
@@ -43,14 +47,27 @@ export function login(data) {
 }
 
 export function register(data) {
-    return fetch(`${url}/${auth.register}`, getOptions('post', data))
+    return fetch(`${url}${auth.register}`, getOptions('post', data))
         .then(err => {
             throw { "message": err.message }
         })
 }
 
 export function logout() {
-    return fetch(`${url}/${auth.logout}`, getOptions())
+    return fetch(`${url}${auth.logout}`, getOptions())
+        .then(res => {
+            if(!res.ok) {
+                return res.json()
+                    .then(err => {
+                        console.log(err)
+                        throw err;
+                    })
+            }
+            return res.json()
+        })
+        .catch(err => {
+            throw err;
+        })
 }
 
 

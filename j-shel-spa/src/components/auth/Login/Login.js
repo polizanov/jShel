@@ -32,10 +32,6 @@ const Login = ({
             .catch(err => {
                 setErrorArr([err.message])
             })
-
-
-        console.log(username);
-        console.log(password);
     }
 
     return (

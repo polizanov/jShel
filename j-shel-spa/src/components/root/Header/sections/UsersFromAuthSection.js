@@ -1,14 +1,41 @@
 import styles from '../Header.module.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 
-const UsersFromAuthSection = ({username}) => {
+import ErrorPage from '../../../error/ErrorPage/ErrorPage';
+import {logout, clearUserData, getAuthUsername} from "../../../../services/authService"
+
+const UsersFromAuthSection = ({
+    username,
+    setUsername,
+}) => {
+    const [errorMessage, setError] = useState(null);
+    const navigate = useNavigate();
+
+    const onClickLogoutHandler = (e) => {
+        e.preventDefault();
+        logout()
+            .then(res => {
+            clearUserData();
+            setUsername(getAuthUsername());
+            navigate('/')
+        })
+        .catch(err => {
+            setError([err.message])
+        })
+    }
+
+    if(errorMessage) {
+        return <ErrorPage message={errorMessage} />
+    }
+
     return (
         <>
             <li className={styles.listItem}>
-                <a className={styles.link} href="#">HALLO {username}</a>
+                <a className={styles.link} href="#">HALLO {username.toUpperCase()}</a>
             </li>
             <li className={styles.listItem}>
-                <a className={styles.link} href="#">LOGOUT</a>
+                <a onClick={onClickLogoutHandler} className={styles.link}>LOGOUT</a>
             </li>
         </>
     )
