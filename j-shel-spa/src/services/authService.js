@@ -40,9 +40,6 @@ export function login(data) {
             }
             return res.json()
         })
-        .catch(err => {
-            throw err
-        })
 
 }
 

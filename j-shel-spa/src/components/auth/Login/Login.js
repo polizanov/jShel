@@ -27,7 +27,7 @@ const Login = ({
             .then(res => {
                 setUserAuthData(res.sessionToken, res.objectId, res.username, res.email);
                 setUsername(res.username);
-                navigate('/create');
+                navigate('/home');
             })
             .catch(err => {
                 setErrorArr([err.message])

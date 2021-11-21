@@ -12,7 +12,7 @@ const Details = () => {
     useEffect(async () => {
         let data = await getDetails(id);
         setDetails(data);
-    }, []);
+    }, [id]);
 
 
     return (
@@ -36,10 +36,6 @@ const Details = () => {
                         </li>
                     </ul>
                     <p>
-                        {/* <i className={['fas', 'fa-star', styles.stars].join(" ")}></i>
-                        <i className={['fas', 'fa-star', styles.stars].join(" ")}></i>
-                        <i className={['fas', 'fa-star', styles.stars].join(" ")}></i>
-                        <i className={['fas', 'fa-star', styles.stars].join(" ")}></i> */}
                         {rendStars(details.stars).map(x => {
                             return <i key={`${details.name}${details.town}${x}`} className={['fas', 'fa-star', styles.stars].join(" ")}></i>
                         })}

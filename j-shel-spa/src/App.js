@@ -7,6 +7,7 @@ import { Route, Routes, Link, Redirect } from 'react-router-dom';
 
 
 import GuestHome from './components/home/GuestHome/GuestHome';
+import AuthenticatedHome from './components/home/AuthenticatedHome/AuthenticatedHome';
 import Details from './components/hotels/Details/Details';
 import Login from './components/auth/Login/Login';
 import Register from './components/auth/Register/Register';
@@ -30,6 +31,7 @@ function App() {
       <main>
         <Routes>
           <Route path="/" exact element={<GuestHome />} />
+          <Route path="/home" exac element={<AuthenticatedHome />} />
           <Route path="/details/:hotelId" exact element={<Details />} />
           <Route path="/login" exact element={<Login setUsername={setUsername} />} />
           <Route path="/register" exact element={<Register />} />
