@@ -32,7 +32,7 @@ const UsersFromAuthSection = ({
     return (
         <>
             <li className={styles.listItem}>
-                <a className={styles.link} href="#">HALLO {username.toUpperCase()}</a>
+                <Link to="/my-profile" className={styles.link} >HALLO {username.toUpperCase()}</Link>
             </li>
             <li className={styles.listItem}>
                 <a onClick={onClickLogoutHandler} className={styles.link}>LOGOUT</a>
