@@ -9,7 +9,7 @@ import { getMyProfileData } from '../../../services/authService'
 
 import profileAvatar from '../../../images/profileAvatar.jpg';
 
-const ProfilePage = () => {
+const Profile = () => {
     let [profileInfo, setProfileInfo] = useState({});
     let [hotels, setHotels] = useState({});
     let [errorMessage, setErrorMessage] = useState({});
@@ -57,4 +57,4 @@ const ProfilePage = () => {
     )
 }
 
-export default ProfilePage;
+export default Profile;

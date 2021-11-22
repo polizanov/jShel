@@ -13,10 +13,8 @@ import Login from './components/auth/Login/Login';
 import Register from './components/auth/Register/Register';
 import CreateHotel from './components/hotels/CreateHotel/CreateHotel';
 import EditHotel from './components/hotels/EditHotel/EditHotel';
-import ProfilePage from './components/auth/ProfilePage/ProfilePage';
-
-import Hotels from './components/hotels/Hotels/Hotels';
-import NoData from './components/hotels/NoData/NoData';
+import Profile from './components/auth/Profile/Profile';
+import FavouriteHotels from './components/hotels/FavouriteHotels/FavouriteHotels';
 
 import { getAuthUsername } from './services/authService'
 
@@ -37,7 +35,8 @@ function App() {
           <Route path="/register" exact element={<Register />} />
           <Route path="/create" exact element={<CreateHotel />} />
           <Route path="/edit/:hotelId" exact element={<EditHotel />} />
-          <Route path="/my-profile" exact element={<ProfilePage />} />
+          <Route path="/my-profile" exact element={<Profile />} />
+          <Route path="/my-favourite" exact element={<FavouriteHotels />} />
         </Routes>
       </main>
       <Footer />

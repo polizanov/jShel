@@ -12,7 +12,7 @@ const usersFromMenuSection = () => {
                 <Link to="/create" className={styles.link}>ADD HOTEL</Link>
             </li>
             <li className={styles.listItem}>
-                <a className={styles.link} href="#">FAVOURITES</a>
+                <Link to="/my-favourite" className={styles.link} >FAVOURITES</Link>
             </li>
         </>
     )

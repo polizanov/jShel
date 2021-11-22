@@ -1,4 +1,5 @@
-import styles from './NoData.module.css'
+import { Link } from 'react-router-dom';
+import styles from './NoData.module.css';
 
 const NoData = ({header, content}) => {
     return (
@@ -7,7 +8,7 @@ const NoData = ({header, content}) => {
                 <h1 className={styles.header}>{header}</h1>
                 <p className={styles.paragraph}>{content}</p>
                 <article>
-                    <a className={styles.link} href="#">ADD HOTEL</a>
+                    <Link to="/create" className={styles.link} >ADD HOTEL</Link>
                 </article>
             </article>
 

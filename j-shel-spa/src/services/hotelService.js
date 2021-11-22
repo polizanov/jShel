@@ -8,12 +8,22 @@ export function getAllHotels() {
         .then(res => {
             if (!res.ok) {
                 return res.json()
-                    .then(err => {
-                        throw err;
-                    })
+                    .then(err => { throw err });
             }
             return res.json();
         })
+}
+
+export function getFavouriteHotels() {
+    return fetch(`${url}${hotelLinks.favouriteHotels}`, getOptions())
+        .then(res => {
+            if (!res.ok) {
+                return res.json()
+                    .then(err => { throw err });
+            }
+            return res.json();
+        })
+
 }
 
 export function goldenAreaService() {
