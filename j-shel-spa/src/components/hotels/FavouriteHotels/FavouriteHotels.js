@@ -27,8 +27,10 @@ const FavouriteHotels = () => {
         { hotels.length > 0 ? 
         <Hotels type="Favourite" header="My Favourite" data={hotels} /> : 
         <NoData
-                header="Looks like you have no hotels added!"
-                content="Аdd the first one!"
+                header="Looks like you haven't liked any hotels yet!"
+                content="Like the first one!"
+                buttonValue="All Hotels"
+                buttonLink="/home"
         />}
     </>
 }

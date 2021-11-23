@@ -1,7 +1,8 @@
-import styles from './Login.module.css';
 import { useState } from 'react';
 import { useNavigate } from "react-router-dom"
-import { validateLogin } from '../../../services/validate/loginValidateService';
+
+import styles from './Login.module.css';
+import { validateLogin } from '../../../services/validate/AuthValidateService';
 import FormError from '../../error/FormError/FormError';
 import { login, setUserAuthData } from '../../../services/authService'
 
@@ -18,12 +19,8 @@ const Login = ({
 
         try {
             validateLogin({ username, password })
-        } catch (err) {
-            setErrorArr(err.messages)
-        }
 
-
-        login({ username, password })
+            login({ username, password })
             .then(res => {
                 setUserAuthData(res.sessionToken, res.objectId, res.username, res.email);
                 setUsername(res.username);
@@ -32,6 +29,15 @@ const Login = ({
             .catch(err => {
                 setErrorArr([err.message])
             })
+
+        } catch (err) {
+            setErrorArr(err.messages);
+            e.target.username.value = err.username;
+            e.target.password.value = "";
+        }
+
+
+        
     }
 
     return (

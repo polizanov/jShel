@@ -56,8 +56,12 @@ export function login(data) {
 
 export function register(data) {
     return fetch(`${url}${auth.register}`, getOptions('post', data))
-        .then(err => {
-            throw { "message": err.message }
+        .then(res => {
+            if(!res.ok){
+                return res.json()
+                    .then(err => {throw err})
+            }
+            return res.json();
         })
 }
 
@@ -67,7 +71,6 @@ export function logout() {
             if (!res.ok) {
                 return res.json()
                     .then(err => {
-                        console.log(err)
                         throw err;
                     })
             }

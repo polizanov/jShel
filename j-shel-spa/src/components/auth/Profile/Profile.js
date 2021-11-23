@@ -49,6 +49,8 @@ const Profile = () => {
                     <NoData 
                     header="Looks like you have no hotels yet!" 
                     content="Add the first one!" 
+                    buttonValue="Add Hotel"
+                    buttonLink="/create"
                     />
                 }
             </section>

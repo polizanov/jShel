@@ -20,7 +20,9 @@ class GuestHome extends Component {
     renderHotels() {
         if (!this.state.data) {
             return <NoData header="Looks like no one has added a hotel yet!"
-                content="Be the first!" />
+                content="Be the first!"
+                buttonValue="Add Hotel"
+                buttonLink="/create" />
         }
 
         return <Hotels type="gold" header="Gold Area" data={this.state.data} />

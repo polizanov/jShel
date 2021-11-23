@@ -1,10 +1,58 @@
-import styles from './Register.module.css';
+import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import { useNavigate } from 'react-router';
 
-const Register = () => {
+import styles from './Register.module.css';
+import {validateRegister} from '../../../services/validate/AuthValidateService';
+import FormError from '../../error/FormError/FormError';
+import {register, setUserAuthData} from '../../../services/authService';
+
+const Register = ({
+    setUsername
+}) => {
+    const [errorArr, setErrorArr] = useState([]);
+    const navigate = useNavigate();
+
+    const onSubmitRegisterHandler = (e) => {
+        e.preventDefault();
+
+        let email = e.target.email.value;
+        let username = e.target.username.value;
+        let password = e.target.password.value;
+        let rePassword = e.target.rePassword.value;
+
+        console.log(email, username, password, rePassword)
+        
+        
+        try {
+            validateRegister({ email, username, password, rePassword });
+
+            register({ email, username, password, rePassword })
+            .then(res => {
+                setUserAuthData(res.sessionToken, res.objectId, res.username, res.email);
+                setUsername(res.username);
+                navigate('/home');
+            })
+            .catch(err => {
+                setErrorArr([err.message]);
+            })
+            
+        } catch (err) {
+            setErrorArr(err.messages);
+            e.target.email.value = err.email;
+            e.target.username.value = err.username;
+            e.target.password.value = "";
+            e.target.rePassword.value = "";
+        }
+
+        
+        
+
+    }
 
     return (
         <section className={styles.registerWrapper}>
-                <form  className={styles.form}>
+                <form onSubmit={onSubmitRegisterHandler}  className={styles.form}>
                     <article>
                         <h1 className={styles.header}>REGISTER</h1>
                     </article>
@@ -17,9 +65,12 @@ const Register = () => {
                     <label htmlFor="password">
                         <input className={styles.textPassword} type="password" name="password" placeholder="Password" />
                     </label>
+                    <label htmlFor="rePassword">
+                        <input className={styles.textPassword} type="password" name="rePassword" placeholder="Repeat password" />
+                    </label>
                     <article>
                         <p className={styles.paragraph}>
-                            Already have an account? <a className={styles.link} href="#">Login now!</a>
+                            Already have an account? <Link to="/login" className={styles.link}>Login now!</Link>
                         </p>
                     </article>
                     <input className={styles.submit} type="submit" value="REGISTER" />
@@ -28,9 +79,9 @@ const Register = () => {
                     <i className="far fa-id-card"></i>
                 </article>
     
-                <article className={styles.error}>
-                    <p className={styles.paragraph} >ERROR MESSAGE</p>
-                </article>
+                {errorArr.length > 0 ?
+                    <FormError errorArr={errorArr} /> 
+                    : ""}
             </section>
     )
 }
