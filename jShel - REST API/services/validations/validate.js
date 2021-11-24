@@ -23,7 +23,7 @@ function validateHotelData(data) {
     }
 
     if (imageUrl.length < 10) {
-        throw { message: "Imgage Url must must be at least 6 characters!" };
+        throw { message: "Imgage Url must must be at least 10 characters!" };
     }
 
     if (!IMAGE_URL_PATTERN.test(imageUrl)) {
@@ -31,7 +31,7 @@ function validateHotelData(data) {
     }
 
     if (description.length < 10) {
-        throw { message: "Name must be at least 10 characters!" };
+        throw { message: "Description must be at least 10 characters!" };
     }
 
     if (town.length < 4) {
