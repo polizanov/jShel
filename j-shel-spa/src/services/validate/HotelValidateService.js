@@ -1,4 +1,4 @@
-import { IMAGE_URL_PATTERN } from './validatePatrens'
+import validatePaterns from './validatePatrens'
 
 export function validateHotelData(data) {
     let {
@@ -8,12 +8,12 @@ export function validateHotelData(data) {
         town,
         stars,
         address,
-        public
+        isPublic
     } = data;
 
     let errorArr = [];
 
-    if (!name || !imageUrl || !description || !town || !stars || !address || !public) {
+    if (!name || !imageUrl || !description || !town || !stars || !address) {
         errorArr.push("All fields are required!");
     }
 
@@ -25,7 +25,7 @@ export function validateHotelData(data) {
         errorArr.push("Imgage Url and description must must be at least 10 characters!");
     }
 
-    if (!IMAGE_URL_PATTERN.test(imageUrl)) {
+    if (!validatePaterns.IMAGE_URL_PATTERN.test(imageUrl)) {
         errorArr.push("Invalid Image Url!");
     }
 
@@ -37,8 +37,17 @@ export function validateHotelData(data) {
         errorArr.push("Address must be at least 4 characters!");
     }
 
-    if(errorArr.length > 0) {
-        throw {messages: errorArr}
+    if (errorArr.length > 0) {
+        throw {
+            messages: errorArr,
+            name,
+            imageUrl,
+            description,
+            town,
+            stars,
+            address,
+            isPublic
+        }
     }
 
 }

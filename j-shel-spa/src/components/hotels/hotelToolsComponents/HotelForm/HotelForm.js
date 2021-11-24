@@ -1,18 +1,26 @@
 import styles from './HotelForm.module.css'
 import content from "./formTypes";
 
+import FormError from '../../../error/FormError/FormError';
 
-function HotelForm({ type, data, setData, onSubmitHandler }) {
+
+function HotelForm({ type, data, setData, onSubmitHandler, errorArr }) {
 
     const onChangeFormValue = (e) => {
         let updatedData;
-        if(e.currentTarget.name == "public"){
-            updatedData = {...data, [e.target.name]: e.currentTarget.checked};
+        if (e.currentTarget.name == "isPublic") {
+            updatedData = { ...data, [e.target.name]: e.currentTarget.checked };
             setData(updatedData);
             return;
-        }   
+        }
 
-        updatedData = {...data, [e.target.name]: e.currentTarget.value};
+        if (e.currentTarget.name == "stars") {
+            updatedData = { ...data, [e.target.name]: Number(e.currentTarget.value) };
+            setData(updatedData);
+            return;
+        }
+
+        updatedData = { ...data, [e.target.name]: e.currentTarget.value };
         setData(updatedData)
     }
 
@@ -82,7 +90,7 @@ function HotelForm({ type, data, setData, onSubmitHandler }) {
                     Public
                     <input
                         type="checkbox"
-                        name="public"
+                        name="isPublic"
                         onChange={onChangeFormValue} />
                 </label>
                 <input className={styles.submit} type="submit" value={content[type].buttonText} />
@@ -91,9 +99,11 @@ function HotelForm({ type, data, setData, onSubmitHandler }) {
                 <i className="fas fa-plus"></i>
             </article>
 
-            <article className={styles.error}>
-                <p>ERROR MESSAGE</p>
-            </article>
+            {errorArr.length > 0 ?
+                <FormError errorArr={errorArr} />
+                : ""}
+
+
         </section>
     );
 }

@@ -38,3 +38,24 @@ export function getDetails(id) {
         .then(res => res.json())
         .catch(err => console.log(err))
 }
+
+export function createHotel(data) {
+    const hotel = {
+        name: data.name,
+        imageUrl: data.imageUrl,
+        description: data.description,
+        town: data.town,
+        stars: data.stars,
+        address: data.address,
+        public: data.isPublic,
+    }
+
+    return fetch(`${url}${hotelLinks.createHotel}`, getOptions('post', hotel))
+        .then(res => {
+            if (!res.ok) {
+                return res.json()
+                    .then(err => { throw err })
+            }
+            return res.json();
+        })
+}

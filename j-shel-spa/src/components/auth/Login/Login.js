@@ -21,14 +21,14 @@ const Login = ({
             validateLogin({ username, password })
 
             login({ username, password })
-            .then(res => {
-                setUserAuthData(res.sessionToken, res.objectId, res.username, res.email);
-                setUsername(res.username);
-                navigate('/home');
-            })
-            .catch(err => {
-                setErrorArr([err.message])
-            })
+                .then(res => {
+                    setUserAuthData(res.sessionToken, res.objectId, res.username, res.email);
+                    setUsername(res.username);
+                    navigate('/home');
+                })
+                .catch(err => {
+                    setErrorArr([err.message])
+                })
 
         } catch (err) {
             setErrorArr(err.messages);
@@ -37,7 +37,7 @@ const Login = ({
         }
 
 
-        
+
     }
 
     return (
