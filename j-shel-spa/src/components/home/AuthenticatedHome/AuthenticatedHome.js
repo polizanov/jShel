@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 
-import ErrorPage from '../../error/ErrorPage/ErrorPage'
-import Hotels from "../../hotels/Hotels/Hotels";
-import NoData from '../../hotels/NoData/NoData'
-import { getAllHotels } from '../../../services/hotelService'
+import ErrorPage from '../../error/ErrorPage/ErrorPage';
+import Hotels from "../../hotels/hotelToolsComponents/Hotels/Hotels";
+import NoData from '../../hotels/hotelToolsComponents/NoData/NoData';
+import { getAllHotels } from '../../../services/hotelService';
 
 
 const AuthenticatedHome = () => {

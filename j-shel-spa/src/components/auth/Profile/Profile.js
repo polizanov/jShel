@@ -1,8 +1,8 @@
 import styles from './ProfilePage.module.css'
 import { useState, useEffect } from 'react';
 
-import NoData from '../../hotels/NoData/NoData';
-import Hotels from '../../hotels/Hotels/Hotels';
+import NoData from '../../hotels/hotelToolsComponents/NoData/NoData';
+import Hotels from '../../hotels/hotelToolsComponents/Hotel/Hotel';
 import ErrorPage from '../../error/ErrorPage/ErrorPage';
 
 import { getMyProfileData } from '../../../services/authService'
@@ -25,6 +25,10 @@ const Profile = () => {
                 setErrorMessage(err.message);
             })
     }, [])
+
+    if(errorMessage) {
+        <ErrorPage message={errorMessage} />
+    }
 
     return (
         <section className={styles.wrapper}>

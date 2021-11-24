@@ -1,8 +1,8 @@
 import { Component } from 'react'
 import styles from './GuestHome.module.css';
 
-import Hotels from '../../hotels/Hotels/Hotels';
-import NoData from '../../hotels/NoData/NoData';
+import Hotels from '../../hotels/hotelToolsComponents/Hotels/Hotels';
+import NoData from '../../hotels/hotelToolsComponents/NoData/NoData';
 
 import { goldenAreaService } from '../../../services/hotelService';
 

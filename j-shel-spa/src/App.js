@@ -3,7 +3,7 @@ import { useState } from 'react';
 import Header from './components/root/Header/Header';
 import Footer from './components/root/Footer/Footer';
 
-import { Route, Routes, Link, Redirect } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 
 
 import GuestHome from './components/home/GuestHome/GuestHome';

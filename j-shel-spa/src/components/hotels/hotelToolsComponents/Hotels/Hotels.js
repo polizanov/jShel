@@ -1,5 +1,5 @@
 import styles from './Hotels.module.css';
-import Hotel from '../Hotel/Hotel'
+import Hotel from '../../hotelToolsComponents/Hotel/Hotel'
 import hotelsStyle from '../styles/hotels';
 
 const Hotels = ({type, header, data}) => {

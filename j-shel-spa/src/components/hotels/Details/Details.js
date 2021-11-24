@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { getDetails } from '../../../services/hotelService'
 import { useParams } from 'react-router';
 import styles from './Details.module.css';
-import rendStars from '../tools/rendStars';
+import rendStars from '../../../tools/rendStarsForHotelsComponent';
 
 const Details = () => {
     const id = useParams().hotelId;

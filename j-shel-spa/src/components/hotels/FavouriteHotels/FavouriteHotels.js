@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 
 import ErrorPage from '../../error/ErrorPage/ErrorPage'
-import Hotels from "../Hotels/Hotels";
-import NoData from "../NoData/NoData";
+import Hotels from "../hotelToolsComponents/Hotels/Hotels";
+import NoData from "../hotelToolsComponents/NoData/NoData";
 
 import { getFavouriteHotels } from '../../../services/hotelService'
 

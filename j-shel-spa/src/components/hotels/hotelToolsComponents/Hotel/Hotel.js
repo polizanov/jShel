@@ -1,7 +1,7 @@
 import styles from './Hotel.module.css'
 import hotelStyle from '../styles/hotel'
 import { Link } from 'react-router-dom'
-import rendStars from '../tools/rendStars'
+import rendStars from '../../../../tools/rendStarsForHotelsComponent'
 
 const Hotel = ({ type, data }) => {
     return (
