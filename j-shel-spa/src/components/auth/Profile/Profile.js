@@ -2,7 +2,7 @@ import styles from './ProfilePage.module.css'
 import { useState, useEffect } from 'react';
 
 import NoData from '../../hotels/hotelToolsComponents/NoData/NoData';
-import Hotels from '../../hotels/hotelToolsComponents/Hotel/Hotel';
+import Hotels from '../../hotels/hotelToolsComponents/Hotels/Hotels';
 import ErrorPage from '../../error/ErrorPage/ErrorPage';
 
 import { getMyProfileData } from '../../../services/authService'
@@ -11,14 +11,14 @@ import profileAvatar from '../../../images/profileAvatar.jpg';
 
 const Profile = () => {
     let [profileInfo, setProfileInfo] = useState({});
-    let [hotels, setHotels] = useState({});
+    let [hotels, setHotels] = useState([]);
     let [errorMessage, setErrorMessage] = useState({});
 
 
     useEffect(() => {
         getMyProfileData()
             .then(data => {
-                setProfileInfo(data.profileInfo)
+                setProfileInfo(data.profileInfo);
                 setHotels(data.hotels)
             })
             .catch(err => {
@@ -47,7 +47,7 @@ const Profile = () => {
                 {
                     hotels.length > 0 ? 
                     <>
-                    <Hotels type="normal" header="My Hotels" data={hotels}/>
+                    <Hotels type="normal" header="My Hotels" data={hotels} />
                     </>
                      :
                     <NoData 

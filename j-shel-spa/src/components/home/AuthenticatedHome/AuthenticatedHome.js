@@ -12,7 +12,6 @@ const AuthenticatedHome = () => {
     const [errorMessage, setErrorMessage] = useState(null);
 
     useEffect(() => {
-
         getAllHotels()
             .then(res => {
                 setGoldenHotels(res.goldenArea);

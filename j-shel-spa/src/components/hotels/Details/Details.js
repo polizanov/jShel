@@ -9,9 +9,11 @@ const Details = () => {
 
     let [details, setDetails] = useState({});
 
-    useEffect(async () => {
-        let data = await getDetails(id);
-        setDetails(data);
+    useEffect(() => {
+        getDetails(id)
+            .then(data => {
+                setDetails(data);
+            })
     }, [id]);
 
 

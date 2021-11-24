@@ -12,27 +12,26 @@ const FavouriteHotels = () => {
 
     useEffect(() => {
         getFavouriteHotels()
-        .then(res => {
-            setHotels(res);
-        })
-        .catch(err => setError(err.message))
+            .then(res => {
+                setHotels(res.likedHotels);
+            })
+            .catch(err => setError(err.message));
     }, [])
 
-    if(error) {
-        <ErrorPage message={error} />
+    if (error) {
+        return <ErrorPage message={error} />
     }
 
+    if (hotels.length == 0) {
+        return <NoData
+            header="Looks like you haven't liked any hotels yet!"
+            content="Like the first one!"
+            buttonValue="All Hotels"
+            buttonLink="/home"
+        />
+    }
 
-    return <>
-        { hotels.length > 0 ? 
-        <Hotels type="Favourite" header="My Favourite" data={hotels} /> : 
-        <NoData
-                header="Looks like you haven't liked any hotels yet!"
-                content="Like the first one!"
-                buttonValue="All Hotels"
-                buttonLink="/home"
-        />}
-    </>
+    return <Hotels type="favourite" header="My Favourite" data={hotels} /> 
 }
 
 export default FavouriteHotels;

@@ -18,6 +18,7 @@ export function getFavouriteHotels() {
     return fetch(`${url}${hotelLinks.favouriteHotels}`, getOptions())
         .then(res => {
             if (!res.ok) {
+                console.log(res.json())
                 return res.json()
                     .then(err => { throw err });
             }

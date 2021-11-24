@@ -1,4 +1,4 @@
-import styles from './Hotels.module.css';
+import styles from '../styles/Hotels.module.css';
 import Hotel from '../../hotelToolsComponents/Hotel/Hotel'
 import hotelsStyle from '../styles/hotels';
 

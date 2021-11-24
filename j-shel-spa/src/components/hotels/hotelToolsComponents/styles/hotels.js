@@ -1,4 +1,4 @@
-import styles from '../Hotels/Hotels.module.css'
+import styles from './Hotels.module.css'
 
 const hotelsStyle = {
     gold: {
@@ -23,8 +23,8 @@ const hotelsStyle = {
         areaComponent: styles.favouriteArea,
         header: styles.goldenHeader,
         icon: () => (
-            <article class="heart-icon">
-                <i class="far fa-heart"></i>
+            <article className="heart-icon">
+                <i className="far fa-heart"></i>
             </article>
         )
     },
