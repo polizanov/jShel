@@ -1,48 +1,69 @@
-import styles from "./EditHotel.module.css";
+import { useState, useEffect } from "react";
+import { useNavigate, useParams} from "react-router";
+
+import HotelForm from "../hotelToolsComponents/HotelForm/HotelForm";
+import { validateHotelData } from "../../../services/validate/HotelValidateService";
+import { getDetails } from "../../../services/hotelService";
+import { editHotel } from "../../../services/hotelService";
 
 const EditHotel = () => {
-    return (
-        <section className={styles.wrapper}>
-            <form className={styles.form}>
-                <article className="form-header">
-                    <h1 className={styles.header}>EDIT HOTEL</h1>
-                </article>
-                <label htmlFor="name">
-                    <input className={styles.typeText} type="text" name="name" placeholder="Add name" />
-                </label>
-                <label htmlFor="imageUrl">
-                    <input className={styles.typeText} type="text" name="imageUrl" placeholder="Paste Image URL" />
-                </label>
-                <label htmlFor="description">
-                    <input className={styles.typeText} type="text" name="description" placeholder="Write description" />
-                </label>
-                <label htmlFor="town">
-                    <input className={styles.typeText} type="text" name="town" placeholder="Add town" />
-                </label>
-                <label htmlFor="address">
-                    <input className={styles.typeText} type="text" name="address" placeholder="Add address" />
-                </label>
-                <select className={styles.typeText} name="stars" id="stars" aria-placeholder="Select stars">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                </select>
-                <label htmlFor="public" className={styles.public}>
-                    Public
-                    <input type="checkbox" />
-                </label>
-                <input className={styles.submit} type="submit" value="EDIT" />
-            </form>
-            <article className="icon-wrapper">
-                <i className="fas fa-pencil-alt"></i>
-            </article>
+    const id = useParams().hotelId;
+    const navigate = useNavigate();
+    const [errorArr, setErrorArr] = useState([]);
+    const [formData, setFormData] = useState({
+        name: "",
+        imageUrl: "",
+        description: "",
+        town: "",
+        stars: 1,
+        address: "",
+        isPublic: false
+    });
 
-            <article className={styles.error}>
-                <p>ERROR MESSAGE</p>
-            </article>
-        </section>
+    useEffect(() => {
+        getDetails(id)
+            .then(data => {
+                setFormData({...data, isPublic: data.public})
+            })
+    }, [id])
+
+    const onSubmitHandler = (e) => {
+        e.preventDefault();
+
+        try {
+            validateHotelData(formData);
+            console.log(formData)
+            editHotel(formData, id)
+                .then(res => {
+                    navigate(`/details/${id}`);
+                })
+                .catch(err => {
+                    setErrorArr([err.message]);
+                })
+
+        } catch (err) {
+            setErrorArr(err.messages);
+            setFormData({
+                name: err.name,
+                imageUrl: err.imageUrl,
+                description: err.description,
+                town: err.town,
+                stars: err.stars,
+                address: err.address,
+                isPublic: false
+            })
+        }
+
+    }
+
+    return (
+        <HotelForm
+            type="edit"
+            data={formData}
+            setData={setFormData}
+            onSubmitHandler={onSubmitHandler}
+            errorArr={errorArr}
+        />
     )
 }
 

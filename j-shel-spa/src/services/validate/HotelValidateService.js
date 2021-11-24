@@ -8,7 +8,7 @@ export function validateHotelData(data) {
         town,
         stars,
         address,
-        isPublic
+        isPublic,
     } = data;
 
     let errorArr = [];
@@ -36,6 +36,7 @@ export function validateHotelData(data) {
     if (address.length < 4) {
         errorArr.push("Address must be at least 4 characters!");
     }
+
 
     if (errorArr.length > 0) {
         throw {

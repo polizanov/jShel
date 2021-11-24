@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { getDetails } from '../../../services/hotelService'
-import { useParams } from 'react-router';
+import { useParams, Link } from 'react-router-dom';
 import styles from './Details.module.css';
 import rendStars from '../../../tools/rendStarsForHotelsComponent';
 
@@ -47,7 +47,7 @@ const Details = () => {
                     <p className={styles.buttonText}>{details.likes?.length} Likes</p>
                     <a className={[styles.like, styles.buttons].join(" ")} href="#" id="like">LIKE</a>
                     <a className={[styles.liked, styles.buttons].join(" ")} href="#" id="liked">LIKED</a>
-                    <a className={[styles.edit, styles.buttons].join(" ")} href="#" id="edit">EDIT</a>
+                    <Link to={`/edit/${details._id}`} className={[styles.edit, styles.buttons].join(" ")} id="edit">EDIT</Link>
                     <a className={[styles.delete, styles.buttons].join(" ")} href="#" id="delete">DELETE</a>
                 </article>
             </article>

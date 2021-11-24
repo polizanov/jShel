@@ -4,6 +4,7 @@ const hotel = {
     details: "/details",
     favouriteHotels: "/user/my-favourite",
     createHotel: "/create-hotel",
+    editHotel: "/edit-hotel",
 }
 
 export default hotel;

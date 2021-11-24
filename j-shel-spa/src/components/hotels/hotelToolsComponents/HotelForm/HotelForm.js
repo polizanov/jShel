@@ -91,6 +91,7 @@ function HotelForm({ type, data, setData, onSubmitHandler, errorArr }) {
                     <input
                         type="checkbox"
                         name="isPublic"
+                        checked={data.isPublic}
                         onChange={onChangeFormValue} />
                 </label>
                 <input className={styles.submit} type="submit" value={content[type].buttonText} />
