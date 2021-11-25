@@ -17,6 +17,10 @@ export function getAuthToken() {
     return localStorage.getItem("sessionToken");
 }
 
+export function isAuth() {
+    return Boolean(getAuthUserId());
+}
+
 export function getAuthUserId() {
     return localStorage.getItem("userId");
 }

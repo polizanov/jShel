@@ -1,11 +1,14 @@
-import styles from './ProfilePage.module.css'
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router';
+
+import styles from './ProfilePage.module.css'
 
 import NoData from '../../hotels/hotelToolsComponents/NoData/NoData';
 import Hotels from '../../hotels/hotelToolsComponents/Hotels/Hotels';
 import ErrorPage from '../../error/ErrorPage/ErrorPage';
 
 import { getMyProfileData } from '../../../services/authService'
+import { isAuthenticatedGuard } from '../../../guards/auth';
 
 import profileAvatar from '../../../images/profileAvatar.jpg';
 
@@ -13,9 +16,17 @@ const Profile = () => {
     let [profileInfo, setProfileInfo] = useState({});
     let [hotels, setHotels] = useState([]);
     let [errorMessage, setErrorMessage] = useState({});
+    let navigate = useNavigate();
 
 
     useEffect(() => {
+        try {
+            isAuthenticatedGuard()
+        } catch {
+            navigate("/");
+            return;
+        }
+
         getMyProfileData()
             .then(data => {
                 setProfileInfo(data.profileInfo);

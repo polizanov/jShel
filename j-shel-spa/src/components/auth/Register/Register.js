@@ -1,17 +1,29 @@
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router';
 
 import styles from './Register.module.css';
-import {validateRegister} from '../../../services/validate/AuthValidateService';
+
 import FormError from '../../error/FormError/FormError';
-import {register, setUserAuthData} from '../../../services/authService';
+
+import { validateRegister } from '../../../services/validate/AuthValidateService';
+import { register, setUserAuthData } from '../../../services/authService';
+import { isGuestGuard } from '../../../guards/auth';
 
 const Register = ({
     setUsername
 }) => {
     const [errorArr, setErrorArr] = useState([]);
     const navigate = useNavigate();
+
+    useEffect(() => {
+        try {
+            isGuestGuard();
+        } catch {
+            navigate("/home");
+            return;
+        }
+    })
 
     const onSubmitRegisterHandler = (e) => {
         e.preventDefault();
@@ -21,22 +33,19 @@ const Register = ({
         let password = e.target.password.value;
         let rePassword = e.target.rePassword.value;
 
-        console.log(email, username, password, rePassword)
-        
-        
         try {
             validateRegister({ email, username, password, rePassword });
 
             register({ email, username, password, rePassword })
-            .then(res => {
-                setUserAuthData(res.sessionToken, res.objectId, res.username, res.email);
-                setUsername(res.username);
-                navigate('/home');
-            })
-            .catch(err => {
-                setErrorArr([err.message]);
-            })
-            
+                .then(res => {
+                    setUserAuthData(res.sessionToken, res.objectId, res.username, res.email);
+                    setUsername(res.username);
+                    navigate('/home');
+                })
+                .catch(err => {
+                    setErrorArr([err.message]);
+                })
+
         } catch (err) {
             setErrorArr(err.messages);
             e.target.email.value = err.email;
@@ -44,45 +53,42 @@ const Register = ({
             e.target.password.value = "";
             e.target.rePassword.value = "";
         }
-
         
-        
-
     }
 
     return (
         <section className={styles.registerWrapper}>
-                <form onSubmit={onSubmitRegisterHandler}  className={styles.form}>
-                    <article>
-                        <h1 className={styles.header}>REGISTER</h1>
-                    </article>
-                    <label htmlFor="email">
-                        <input className={styles.textPassword} type="text" name="email" placeholder="Email" />
-                    </label>
-                    <label htmlFor="username">
-                        <input className={styles.textPassword} type="text" name="username" placeholder="Username" />
-                    </label>
-                    <label htmlFor="password">
-                        <input className={styles.textPassword} type="password" name="password" placeholder="Password" />
-                    </label>
-                    <label htmlFor="rePassword">
-                        <input className={styles.textPassword} type="password" name="rePassword" placeholder="Repeat password" />
-                    </label>
-                    <article>
-                        <p className={styles.paragraph}>
-                            Already have an account? <Link to="/login" className={styles.link}>Login now!</Link>
-                        </p>
-                    </article>
-                    <input className={styles.submit} type="submit" value="REGISTER" />
-                </form>
-                <article className="icon-wrapper">
-                    <i className="far fa-id-card"></i>
+            <form onSubmit={onSubmitRegisterHandler} className={styles.form}>
+                <article>
+                    <h1 className={styles.header}>REGISTER</h1>
                 </article>
-    
-                {errorArr.length > 0 ?
-                    <FormError errorArr={errorArr} /> 
-                    : ""}
-            </section>
+                <label htmlFor="email">
+                    <input className={styles.textPassword} type="text" name="email" placeholder="Email" />
+                </label>
+                <label htmlFor="username">
+                    <input className={styles.textPassword} type="text" name="username" placeholder="Username" />
+                </label>
+                <label htmlFor="password">
+                    <input className={styles.textPassword} type="password" name="password" placeholder="Password" />
+                </label>
+                <label htmlFor="rePassword">
+                    <input className={styles.textPassword} type="password" name="rePassword" placeholder="Repeat password" />
+                </label>
+                <article>
+                    <p className={styles.paragraph}>
+                        Already have an account? <Link to="/login" className={styles.link}>Login now!</Link>
+                    </p>
+                </article>
+                <input className={styles.submit} type="submit" value="REGISTER" />
+            </form>
+            <article className="icon-wrapper">
+                <i className="far fa-id-card"></i>
+            </article>
+
+            {errorArr.length > 0 ?
+                <FormError errorArr={errorArr} />
+                : ""}
+        </section>
     )
 }
 

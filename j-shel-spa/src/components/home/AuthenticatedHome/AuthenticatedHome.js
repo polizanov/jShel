@@ -1,17 +1,28 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 import ErrorPage from '../../error/ErrorPage/ErrorPage';
 import Hotels from "../../hotels/hotelToolsComponents/Hotels/Hotels";
 import NoData from '../../hotels/hotelToolsComponents/NoData/NoData';
 import { getAllHotels } from '../../../services/hotelService';
+import {isAuthenticatedGuard} from '../../../guards/auth'
+
 
 
 const AuthenticatedHome = () => {
     const [goldenHotels, setGoldenHotels] = useState([]);
     const [hotels, setHotels] = useState([]);
     const [errorMessage, setErrorMessage] = useState(null);
+    let navigate = useNavigate()
 
     useEffect(() => {
+        try {
+            isAuthenticatedGuard();
+        } catch {
+            navigate("/");
+            return;
+        }
+
         getAllHotels()
             .then(res => {
                 setGoldenHotels(res.goldenArea);

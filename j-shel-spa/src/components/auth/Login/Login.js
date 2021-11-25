@@ -1,16 +1,28 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom"
+
+import FormError from '../../error/FormError/FormError';
 
 import styles from './Login.module.css';
 import { validateLogin } from '../../../services/validate/AuthValidateService';
-import FormError from '../../error/FormError/FormError';
 import { login, setUserAuthData } from '../../../services/authService'
+
+import { isGuestGuard } from '../../../guards/auth'
 
 const Login = ({
     setUsername
 }) => {
     const [errorArr, setErrorArr] = useState([]);
     const navigate = useNavigate();
+
+    useEffect(() => {
+        try {
+            isGuestGuard();
+        } catch {
+            navigate("/home");
+            return;
+        }
+    }, [])
 
     const onLoginSubmitHandler = (e) => {
         e.preventDefault();
