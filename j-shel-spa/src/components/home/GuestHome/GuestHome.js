@@ -1,43 +1,23 @@
-import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+
+import useRequest from '../../../hooks/useRequest/useRequest';
+import renderHotels from '../../../tools/renderHotels';
 
 import styles from './GuestHome.module.css';
 
 import Hotels from '../../hotels/hotelToolsComponents/Hotels/Hotels';
 import NoData from '../../hotels/hotelToolsComponents/NoData/NoData';
 
-import { goldenAreaService } from '../../../services/hotelService';
-import { isGuestGuard } from '../../../guards/auth'
 
 const GuestHome = () => {
-    let [data, setData] = useState([]);
-    let navigate = useNavigate();
-
-    useEffect(() => {
-        try {
-            isGuestGuard();
-        } catch {
-            navigate("/home");
-            return;
-        }
-
-        goldenAreaService()
-            .then(data => {
-                setData(data);
-            })
-    }, [])
-
-    const renderHotels = () => {
-        if (!data) {
-            return <NoData header="Looks like no one has added a hotel yet!"
-                content="Be the first!"
-                buttonValue="Add Hotel"
-                buttonLink="/create" />
-        }
-
-        return <Hotels type="gold" header="Gold Area" data={data} />
-    }
-
+    let [hotels, errorMessage, isLoading] = useRequest("getGoldenArea", [], []);
+    const jsx = <Hotels type="gold" header="Gold Area" data={hotels} />;
+    const jsxNoData = <>
+        <NoData header="Looks like no one has added a hotel yet!"
+            content="Be the first!"
+            buttonValue="Add Hotel"
+            buttonLink="/create" />
+    </>
 
     return (
         <>
@@ -50,16 +30,16 @@ const GuestHome = () => {
                     </article>
                     <section className={styles.buttons}>
                         <article className={styles.button}>
-                            <a className={styles.link} href="#">Login</a>
+                            <Link to="/login" className={styles.link} >Login</Link>
                         </article>
                         <article className={styles.button}>
-                            <a className={styles.link} href="register">Register</a>
+                            <Link to="/register" className={styles.link} >Register</Link>
                         </article>
                     </section>
                 </section>
             </section>
 
-            {renderHotels()}
+            {renderHotels(hotels, errorMessage, isLoading, jsx, jsxNoData)};
         </>
     )
 

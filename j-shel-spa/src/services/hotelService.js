@@ -27,7 +27,7 @@ export function getFavouriteHotels() {
 
 }
 
-export function goldenAreaService() {
+export function getGoldenArea() {
     return fetch(`${url}${hotelLinks.goldenArea}`, getOptions())
         .then(res => res.json())
         .catch(err => console.log(err))

@@ -1,23 +1,16 @@
-import { useEffect, useState } from 'react';
-import { getDetails } from '../../../services/hotelService'
 import { useParams, Link } from 'react-router-dom';
 import styles from './Details.module.css';
+
+import renderHotels from '../../../tools/renderHotels';
 import rendStars from '../../../tools/rendStarsForHotelsComponent';
+
+import useRequest from '../../../hooks/useRequest/useRequest';
 
 const Details = () => {
     const id = useParams().hotelId;
 
-    let [details, setDetails] = useState({});
-
-    useEffect(() => {
-        getDetails(id)
-            .then(data => {
-                setDetails(data);
-            })
-    }, [id]);
-
-
-    return (
+    let [details, errorMessage, isLoading] = useRequest("getDetails", [id], {});
+    const jsx = <>
         <section className={styles.detailsComponent}>
             <article className={styles.hotelImgWrap}>
                 <img className={styles.hotelImg} src={details.imageUrl}
@@ -52,7 +45,9 @@ const Details = () => {
                 </article>
             </article>
         </section>
-    )
+    </>
+
+    return renderHotels(details, errorMessage, isLoading, jsx, null)
 }
 
 export default Details;

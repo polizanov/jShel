@@ -1,58 +1,25 @@
-import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import useRequest from "../../../hooks/useRequest/useRequest";
+import renderHotels from "../../../tools/renderHotels";
 
-import ErrorPage from '../../error/ErrorPage/ErrorPage';
 import Hotels from "../../hotels/hotelToolsComponents/Hotels/Hotels";
 import NoData from '../../hotels/hotelToolsComponents/NoData/NoData';
-import { getAllHotels } from '../../../services/hotelService';
-import {isAuthenticatedGuard} from '../../../guards/auth'
-
 
 
 const AuthenticatedHome = () => {
-    const [goldenHotels, setGoldenHotels] = useState([]);
-    const [hotels, setHotels] = useState([]);
-    const [errorMessage, setErrorMessage] = useState(null);
-    let navigate = useNavigate()
-
-    useEffect(() => {
-        try {
-            isAuthenticatedGuard();
-        } catch {
-            navigate("/");
-            return;
-        }
-
-        getAllHotels()
-            .then(res => {
-                setGoldenHotels(res.goldenArea);
-                setHotels(res.hotels);
-
-            })
-            .catch(err => setErrorMessage(err.message));
-
-    }, [])
-
-    if (errorMessage) {
-        return <ErrorPage message={errorMessage} />
-    }
-
-    return (
-        goldenHotels.lenght == 0 ?
-            <NoData
-                header="Looks like no one has added a hotel yet!"
+    let [hotelsData, errorMessage, isLoading] = useRequest("getAllHotels", [], {});
+    const jsx = <>
+        {hotelsData.goldenArea?.length > 0 ?
+            <Hotels type="gold" header="Gold Area" data={hotelsData.goldenArea} /> :
+            <NoData header="Looks like no one has added a hotel yet!"
                 content="Be the first!"
-            /> :
-            <>
-                <Hotels type="gold" header="Gold Area" data={goldenHotels} />
-                {hotels.length > 0 ?
-                    <Hotels type="normal" header="All Hotels" data={hotels} />
-                    : ""}
-            </>
+                buttonValue="Add Hotel"
+                buttonLink="/create" />}
+        {hotelsData.hotels?.length > 0 ?
+            <Hotels type="normal" header="All Hotels" data={hotelsData?.hotels} />
+            : ""}
+    </>
 
-
-
-    )
+    return renderHotels(hotelsData, errorMessage, isLoading, jsx, null);
 }
 
 export default AuthenticatedHome;
