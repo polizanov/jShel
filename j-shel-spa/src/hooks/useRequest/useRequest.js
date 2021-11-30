@@ -12,8 +12,10 @@ const useRequest = (name, depArray, initialStateValue) => {
         setIsLoading(true);
         requestNames[name](id ? id : null)
             .then(effectData => {
-                setData(effectData);
-                setIsLoading(false);
+                setTimeout(() => {
+                    setData(effectData);
+                    setIsLoading(false);
+                }, 500)
             })
             .catch(err => {
                 setErrorMessage(err.message);

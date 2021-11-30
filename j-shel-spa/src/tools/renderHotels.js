@@ -1,12 +1,13 @@
 import ErrorPage from "../components/error/ErrorPage/ErrorPage";
+import Loading from "../components/error/Loading/Loading";
 
 const renderHotels = (data, error, isLoading, jsx, jsxNoData) => {
     if (isLoading) {
-        return <p>Loading...</p>
+        return <Loading />
     }
 
     if(!data) {
-        return <p>Loading...</p>
+        return <Loading />
     }
 
     if (error) {
@@ -14,7 +15,7 @@ const renderHotels = (data, error, isLoading, jsx, jsxNoData) => {
     }
 
     if(Array.isArray(data)){
-        if (data.length == 0) {
+        if (data.length === 0) {
             return jsxNoData
         }
     }
