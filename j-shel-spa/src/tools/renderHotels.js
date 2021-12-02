@@ -1,20 +1,27 @@
-import ErrorPage from "../components/error/ErrorPage/ErrorPage";
 import Loading from "../components/error/Loading/Loading";
+import NoData from "../components/hotels/hotelToolsComponents/NoData/NoData";
 
-const renderHotels = (data, error, isLoading, jsx, jsxNoData) => {
+const RenderHotels = ({ data, error, isLoading, jsx, jsxNoData = null }) => {
+
     if (isLoading) {
         return <Loading />
     }
 
-    if(!data) {
+    if (!data) {
         return <Loading />
     }
 
     if (error) {
-        return <ErrorPage message={error} />;
+        return <NoData 
+            header="Sorry, but your request could not be processed!"
+            content={error}
+            buttonValue="Click to refresh"
+            buttonLink="/" 
+            isNeedLink={false}
+            />
     }
 
-    if(Array.isArray(data)){
+    if (Array.isArray(data)) {
         if (data.length === 0) {
             return jsxNoData
         }
@@ -23,4 +30,4 @@ const renderHotels = (data, error, isLoading, jsx, jsxNoData) => {
     return jsx;
 }
 
-export default renderHotels;
+export default RenderHotels;

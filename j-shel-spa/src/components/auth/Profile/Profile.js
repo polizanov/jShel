@@ -1,5 +1,5 @@
 import useRequest from '../../../hooks/useRequest/useRequest'
-import renderHotels from '../../../tools/renderHotels';
+import RenderHotels from '../../../tools/RenderHotels';
 
 import styles from './ProfilePage.module.css'
 
@@ -43,7 +43,12 @@ const Profile = () => {
         </section>
     </>
 
-    return renderHotels(profileData, errorMessage, isLoading, jsx, null);
+    return <RenderHotels 
+            data={profileData}
+            error={errorMessage}
+            isLoading={isLoading}
+            jsx={jsx}
+            />
 
 }
 

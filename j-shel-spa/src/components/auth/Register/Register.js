@@ -8,22 +8,13 @@ import FormError from '../../error/FormError/FormError';
 
 import { validateRegister } from '../../../services/validate/AuthValidateService';
 import { register, setUserAuthData } from '../../../services/authService';
-import { isGuestGuard } from '../../../guards/auth';
+
 
 const Register = ({
     setUsername
 }) => {
     const [errorArr, setErrorArr] = useState([]);
     const navigate = useNavigate();
-
-    useEffect(() => {
-        try {
-            isGuestGuard();
-        } catch {
-            navigate("/home");
-            return;
-        }
-    })
 
     const onSubmitRegisterHandler = (e) => {
         e.preventDefault();

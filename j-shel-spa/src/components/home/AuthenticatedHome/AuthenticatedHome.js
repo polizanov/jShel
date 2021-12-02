@@ -1,5 +1,5 @@
 import useRequest from "../../../hooks/useRequest/useRequest";
-import renderHotels from "../../../tools/renderHotels";
+import RenderHotels from "../../../tools/RenderHotels";
 
 import Hotels from "../../hotels/hotelToolsComponents/Hotels/Hotels";
 import NoData from '../../hotels/hotelToolsComponents/NoData/NoData';
@@ -19,7 +19,12 @@ const AuthenticatedHome = () => {
             : ""}
     </>
 
-    return renderHotels(hotelsData, errorMessage, isLoading, jsx, null);
+    return <RenderHotels
+        data={hotelsData}
+        error={errorMessage}
+        isLoading={isLoading}
+        jsx={jsx}
+    />
 }
 
 export default AuthenticatedHome;

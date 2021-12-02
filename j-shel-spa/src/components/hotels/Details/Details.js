@@ -1,7 +1,7 @@
 import { useParams, Link } from 'react-router-dom';
 import styles from './Details.module.css';
 
-import renderHotels from '../../../tools/renderHotels';
+import RenderHotels from '../../../tools/RenderHotels';
 import rendStars from '../../../tools/rendStarsForHotelsComponent';
 
 import useRequest from '../../../hooks/useRequest/useRequest';
@@ -47,7 +47,13 @@ const Details = () => {
         </section>
     </>
 
-    return renderHotels(details, errorMessage, isLoading, jsx, null)
+    return <RenderHotels
+        data={details}
+        error={errorMessage}
+        isLoading={isLoading}
+        jsx={jsx}
+    />
 }
+
 
 export default Details;

@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 
 import useRequest from '../../../hooks/useRequest/useRequest';
-import renderHotels from '../../../tools/renderHotels';
+import RenderHotels from '../../../tools/RenderHotels';
 
 import styles from './GuestHome.module.css';
 
@@ -39,7 +39,13 @@ const GuestHome = () => {
                 </section>
             </section>
 
-            {renderHotels(hotels, errorMessage, isLoading, jsx, jsxNoData)};
+            <RenderHotels
+                data={hotels}
+                error={errorMessage}
+                isLoading={isLoading}
+                jsx={jsx}
+                jsxNoData={jsxNoData}
+            />
         </>
     )
 

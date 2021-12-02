@@ -1,8 +1,7 @@
 import { render } from "@testing-library/react";
 import useRequest from "../../../hooks/useRequest/useRequest";
 
-import renderHotels from "../../../tools/renderHotels";
-import ErrorPage from '../../error/ErrorPage/ErrorPage'
+import RenderHotels from "../../../tools/RenderHotels";
 import Hotels from "../hotelToolsComponents/Hotels/Hotels";
 import NoData from "../hotelToolsComponents/NoData/NoData";
 
@@ -11,14 +10,20 @@ const FavouriteHotels = () => {
     const jsx = <Hotels type="favourite" header="My Favourite" data={hotels.likedHotels} />;
     const jsxNoData = <>
         <NoData
-                header="Looks like you haven't liked any hotels yet!"
-                content="Like the first one!"
-                buttonValue="All Hotels"
-                buttonLink="/home"
-            />
+            header="Looks like you haven't liked any hotels yet!"
+            content="Like the first one!"
+            buttonValue="All Hotels"
+            buttonLink="/home"
+        />
     </>
 
-    return renderHotels(hotels.likedHotels, error, isLoading, jsx, jsxNoData);
+    return <RenderHotels
+        data={hotels}
+        error={error}
+        isLoading={isLoading}
+        jsx={jsx}
+        jsxNoData={jsxNoData}
+    />
 }
 
 export default FavouriteHotels;
