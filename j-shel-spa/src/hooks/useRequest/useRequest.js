@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
+import useAuthInfo from "../useAuthInfo";
 import requestNames from './requestNames'
 
 
 const useRequest = (name, depArray, initialStateValue) => {
+    const {user} = useAuthInfo();
     const [data, setData] = useState(initialStateValue);
     const [errorMessage, setErrorMessage] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
@@ -10,7 +12,7 @@ const useRequest = (name, depArray, initialStateValue) => {
 
     useEffect(() => {
         setIsLoading(true);
-        requestNames[name](id ? id : null)
+        requestNames[name](id ? id : null, user.sessionToken)
             .then(effectData => {
                 setTimeout(() => {
                     setData(effectData);

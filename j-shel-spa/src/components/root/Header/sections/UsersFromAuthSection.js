@@ -15,7 +15,7 @@ const UsersFromAuthSection = () => {
 
     const onClickLogoutHandler = (e) => {
         e.preventDefault();
-        logout()
+        logout(user.sessionToken)
             .then(res => {
                 removeUserInfo();
                 navigate('/')

@@ -3,8 +3,8 @@ import url from "./api-links/url";
 
 import getOptions from './getOptions';
 
-export function getAllHotels() {
-    return fetch(`${url}`, getOptions())
+export function getAllHotels(id, token) {
+    return fetch(`${url}`, getOptions("get", token))
         .then(res => {
             if (!res.ok) {
                 return res.json()
@@ -14,8 +14,8 @@ export function getAllHotels() {
         })
 }
 
-export function getFavouriteHotels() {
-    return fetch(`${url}${hotelLinks.favouriteHotels}`, getOptions())
+export function getFavouriteHotels(id, token) {
+    return fetch(`${url}${hotelLinks.favouriteHotels}`, getOptions("get", token))
         .then(res => {
             if (!res.ok) {
                 console.log(res.json())
@@ -28,13 +28,13 @@ export function getFavouriteHotels() {
 }
 
 export function getGoldenArea() {
-    return fetch(`${url}${hotelLinks.goldenArea}`, getOptions())
+    return fetch(`${url}${hotelLinks.goldenArea}`, getOptions("get"))
         .then(res => res.json())
         .catch(err => console.log(err))
 }
 
-export function getDetails(id) {
-    return fetch(`${url}${hotelLinks.details}/${id}`, getOptions())
+export function getDetails(id, token) {
+    return fetch(`${url}${hotelLinks.details}/${id}`, getOptions("get", token))
         .then(res => res.json())
         .catch(err => console.log(err))
 }

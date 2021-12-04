@@ -2,39 +2,16 @@ import url from './api-links/url';
 import auth from './api-links/authLinks'
 import getOptions from './getOptions';
 
-export function setUserAuthData(token, userId, username, email) {
-    localStorage.setItem("sessionToken", token);
-    localStorage.setItem("userId", userId);
-    localStorage.setItem("username", username);
-    localStorage.setItem("email", email);
-}
 
-export function clearUserData() {
-    localStorage.clear();
-}
+
+
 
 export function getAuthToken() {
     return localStorage.getItem("sessionToken");
 }
 
-export function isAuth() {
-    return Boolean(getAuthUserId());
-}
-
-export function getAuthUserId() {
-    return localStorage.getItem("userId");
-}
-
-export function getAuthUsername() {
-    return localStorage.getItem("username");
-}
-
-export function getAuthEmail() {
-    return localStorage.getItem("email");
-}
-
-export function getMyProfileData() {
-    return fetch(`${url}${auth.myProfile}`, getOptions())
+export function getMyProfileData(id, token) {
+    return fetch(`${url}${auth.myProfile}`, getOptions("get", token))
         .then(res => {
             if (!res.ok) {
                 return res.json()
@@ -46,7 +23,7 @@ export function getMyProfileData() {
 }
 
 export function login(data) {
-    return fetch(`${url}${auth.login}`, getOptions('post', data))
+    return fetch(`${url}${auth.login}`, getOptions('post', null, data))
         .then(res => {
             if (!res.ok) {
                 return res.json()
@@ -59,7 +36,7 @@ export function login(data) {
 
 
 export function register(data) {
-    return fetch(`${url}${auth.register}`, getOptions('post', data))
+    return fetch(`${url}${auth.register}`, getOptions('post', null, data))
         .then(res => {
             if(!res.ok){
                 return res.json()
@@ -69,8 +46,8 @@ export function register(data) {
         })
 }
 
-export function logout() {
-    return fetch(`${url}${auth.logout}`, getOptions())
+export function logout(token) {
+    return fetch(`${url}${auth.logout}`, getOptions("get", token))
         .then(res => {
             if (!res.ok) {
                 return res.json()
