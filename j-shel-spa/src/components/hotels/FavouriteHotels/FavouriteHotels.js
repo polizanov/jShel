@@ -1,4 +1,3 @@
-import { render } from "@testing-library/react";
 import useRequest from "../../../hooks/useRequest/useRequest";
 
 import RenderHotels from "../../../tools/RenderHotels";
@@ -18,7 +17,7 @@ const FavouriteHotels = () => {
     </>
 
     return <RenderHotels
-        data={hotels}
+        data={hotels.likedHotels}
         error={error}
         isLoading={isLoading}
         jsx={jsx}
