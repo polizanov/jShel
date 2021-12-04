@@ -1,12 +1,16 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams} from "react-router";
+import useAuthInfo from "../../../hooks/useAuthInfo";
 
 import HotelForm from "../hotelToolsComponents/HotelForm/HotelForm";
 import { validateHotelData } from "../../../services/validate/HotelValidateService";
 import { getDetails } from "../../../services/hotelService";
 import { editHotel } from "../../../services/hotelService";
 
+import isAuth from "../../../hoc/isAuth";
+
 const EditHotel = () => {
+    const {user} = useAuthInfo();
     const id = useParams().hotelId;
     const navigate = useNavigate();
     const [errorArr, setErrorArr] = useState([]);
@@ -23,6 +27,10 @@ const EditHotel = () => {
     useEffect(() => {
         getDetails(id)
             .then(data => {
+                if(data.owner_id !== user.userId){
+                    navigate(`/home`);
+                }
+            
                 setFormData({...data, isPublic: data.public})
             })
     }, [id])
@@ -32,8 +40,7 @@ const EditHotel = () => {
 
         try {
             validateHotelData(formData);
-            console.log(formData)
-            editHotel(formData, id)
+            editHotel(formData, id, user.sessionToken)
                 .then(res => {
                     navigate(`/details/${id}`);
                 })
@@ -67,4 +74,4 @@ const EditHotel = () => {
     )
 }
 
-export default EditHotel;
+export default isAuth(EditHotel);

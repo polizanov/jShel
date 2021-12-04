@@ -18,7 +18,6 @@ export function getFavouriteHotels(id, token) {
     return fetch(`${url}${hotelLinks.favouriteHotels}`, getOptions("get", token))
         .then(res => {
             if (!res.ok) {
-                console.log(res.json())
                 return res.json()
                     .then(err => { throw err });
             }
@@ -39,7 +38,7 @@ export function getDetails(id, token) {
         .catch(err => console.log(err))
 }
 
-export function createHotel(data) {
+export function createHotel(data, token) {
     const hotel = {
         name: data.name,
         imageUrl: data.imageUrl,
@@ -50,7 +49,7 @@ export function createHotel(data) {
         public: data.isPublic,
     }
 
-    return fetch(`${url}${hotelLinks.createHotel}`, getOptions('post', hotel))
+    return fetch(`${url}${hotelLinks.createHotel}`, getOptions('post', token, hotel))
         .then(res => {
             if (!res.ok) {
                 return res.json()
@@ -60,7 +59,7 @@ export function createHotel(data) {
         })
 }
 
-export function editHotel(data, hotelId) {
+export function editHotel(data, hotelId, token) {
     const hotel = {
         name: data.name,
         imageUrl: data.imageUrl,
@@ -71,7 +70,7 @@ export function editHotel(data, hotelId) {
         public: data.isPublic,
     }
 
-    return fetch(`${url}${hotelLinks.editHotel}/${hotelId}`, getOptions('put', hotel))
+    return fetch(`${url}${hotelLinks.editHotel}/${hotelId}`, getOptions('put', token, hotel))
         .then(res => {
             if (!res.ok) {
                 return res.json()

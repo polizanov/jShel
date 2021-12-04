@@ -5,8 +5,10 @@ import styles from './ProfilePage.module.css'
 
 import NoData from '../../hotels/hotelToolsComponents/NoData/NoData';
 import Hotels from '../../hotels/hotelToolsComponents/Hotels/Hotels';
+import isAuth from '../../../hoc/isAuth'
 
 import profileAvatar from '../../../images/profileAvatar.jpg';
+
 
 const Profile = () => {
     const [profileData, errorMessage, isLoading] = useRequest("getMyProfileData", [], {});
@@ -52,4 +54,4 @@ const Profile = () => {
 
 }
 
-export default Profile;
+export default isAuth(Profile);

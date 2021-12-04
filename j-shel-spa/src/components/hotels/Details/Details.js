@@ -1,10 +1,13 @@
 import { useParams, Link } from 'react-router-dom';
+import useRequest from '../../../hooks/useRequest/useRequest';
+
 import styles from './Details.module.css';
 
 import RenderHotels from '../../../tools/RenderHotels';
 import rendStars from '../../../tools/rendStarsForHotelsComponent';
 
-import useRequest from '../../../hooks/useRequest/useRequest';
+import isAuth from '../../../hoc/isAuth';
+
 
 const Details = () => {
     const id = useParams().hotelId;
@@ -56,4 +59,4 @@ const Details = () => {
 }
 
 
-export default Details;
+export default isAuth(Details);

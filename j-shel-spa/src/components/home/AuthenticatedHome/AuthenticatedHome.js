@@ -4,6 +4,7 @@ import RenderHotels from "../../../tools/RenderHotels";
 import Hotels from "../../hotels/hotelToolsComponents/Hotels/Hotels";
 import NoData from '../../hotels/hotelToolsComponents/NoData/NoData';
 
+import isAuth from '../../../hoc/isAuth'
 
 const AuthenticatedHome = () => {
     let [hotelsData, errorMessage, isLoading] = useRequest("getAllHotels", [], {});
@@ -27,4 +28,4 @@ const AuthenticatedHome = () => {
     />
 }
 
-export default AuthenticatedHome;
+export default isAuth(AuthenticatedHome);

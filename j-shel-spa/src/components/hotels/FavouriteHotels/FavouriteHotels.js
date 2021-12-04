@@ -4,6 +4,8 @@ import RenderHotels from "../../../tools/RenderHotels";
 import Hotels from "../hotelToolsComponents/Hotels/Hotels";
 import NoData from "../hotelToolsComponents/NoData/NoData";
 
+import isAuth from "../../../hoc/isAuth";
+
 const FavouriteHotels = () => {
     let [hotels, error, isLoading] = useRequest("getFavouriteHotels", [], []);
     const jsx = <Hotels type="favourite" header="My Favourite" data={hotels.likedHotels} />;
@@ -25,4 +27,4 @@ const FavouriteHotels = () => {
     />
 }
 
-export default FavouriteHotels;
+export default isAuth(FavouriteHotels);

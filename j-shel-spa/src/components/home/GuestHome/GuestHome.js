@@ -7,6 +7,7 @@ import styles from './GuestHome.module.css';
 
 import Hotels from '../../hotels/hotelToolsComponents/Hotels/Hotels';
 import NoData from '../../hotels/hotelToolsComponents/NoData/NoData';
+import isGuest from '../../../hoc/isGuest'
 
 
 const GuestHome = () => {
@@ -51,5 +52,5 @@ const GuestHome = () => {
 
 }
 
-export default GuestHome;
+export default isGuest(GuestHome);
 

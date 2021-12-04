@@ -6,7 +6,8 @@ import FormError from '../../error/FormError/FormError';
 
 import styles from './Login.module.css';
 import { validateLogin } from '../../../services/validate/AuthValidateService';
-import { login } from '../../../services/authService'
+import { login } from '../../../services/authService';
+import isGuest from '../../../hoc/isGuest'
 
 const Login = () => {
     const [errorArr, setErrorArr] = useState([]);
@@ -69,4 +70,4 @@ const Login = () => {
     )
 }
 
-export default Login;
+export default isGuest(Login);

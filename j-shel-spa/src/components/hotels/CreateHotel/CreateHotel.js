@@ -1,12 +1,15 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
+import useAuthInfo from "../../../hooks/useAuthInfo";
 
 import HotelForm from "../hotelToolsComponents/HotelForm/HotelForm";
 import { validateHotelData } from "../../../services/validate/HotelValidateService";
-import { createHotel } from "../../../services/hotelService"
+import { createHotel } from "../../../services/hotelService";
+import isAuth from "../../../hoc/isAuth";
 
 const CreateHotel = () => {
     const navigate = useNavigate();
+    const {user} = useAuthInfo();
     const [errorArr, setErrorArr] = useState([]);
     const [formData, setFormData] = useState({
         name: "",
@@ -24,7 +27,7 @@ const CreateHotel = () => {
         try {
             validateHotelData(formData);
 
-            createHotel(formData)
+            createHotel(formData, user.sessionToken)
                 .then(res => {
                     navigate("/home");
                 })
@@ -59,4 +62,4 @@ const CreateHotel = () => {
     )
 }
 
-export default CreateHotel;
+export default isAuth(CreateHotel);

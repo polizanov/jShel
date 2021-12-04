@@ -1,5 +1,5 @@
 import { useState } from "react"
-import AuthContext from "../../context/authContext/AuthContext"
+import AuthContext from "../context/authContext/AuthContext"
 
 const initialState = {
     email: "",
@@ -20,7 +20,7 @@ const AuthProvider = ({ children }) => {
     }
 
     return (
-        <AuthContext.Provider value={{user, addUserInfo, removeUserInfo}}>
+        <AuthContext.Provider value={{user, isAutenticated: Boolean(user.userId), addUserInfo, removeUserInfo}}>
             {children}
         </AuthContext.Provider>
     )

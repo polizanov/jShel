@@ -9,6 +9,7 @@ import FormError from '../../error/FormError/FormError';
 
 import { validateRegister } from '../../../services/validate/AuthValidateService';
 import { register } from '../../../services/authService';
+import isGuest from '../../../hoc/isGuest';
 
 
 const Register = () => {
@@ -82,4 +83,4 @@ const Register = () => {
     )
 }
 
-export default Register;
+export default isGuest(Register);

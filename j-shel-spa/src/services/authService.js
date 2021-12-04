@@ -3,13 +3,6 @@ import auth from './api-links/authLinks'
 import getOptions from './getOptions';
 
 
-
-
-
-export function getAuthToken() {
-    return localStorage.getItem("sessionToken");
-}
-
 export function getMyProfileData(id, token) {
     return fetch(`${url}${auth.myProfile}`, getOptions("get", token))
         .then(res => {
