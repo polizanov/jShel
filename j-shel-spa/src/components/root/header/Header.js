@@ -1,15 +1,15 @@
-import styles from './Header.module.css';
 import { Link } from 'react-router-dom';
+import useAuthInfo from '../../../hooks/useAuthInfo';
+
+import styles from './Header.module.css';
 
 import GuestFromAuthSection from './sections/GuestFromAuthSection';
 import GuestFromMenuSection from './sections/GuestFromMenuSection';
 import UsersFromAuthSection from './sections/UsersFromAuthSection';
 import UsersFromMenuSection from './sections/UsersFromMenuSection';
 
-const Header = ({
-    username,
-    setUsername,
-}) => {
+const Header = () => {
+    const {user} = useAuthInfo();
 
     return (
         <header className="wrap">
@@ -21,7 +21,7 @@ const Header = ({
                 <article>
                     <nav>
                         <ul className={styles.center}>
-                            {username ? <UsersFromMenuSection /> : <GuestFromMenuSection />}
+                            {user.username ? <UsersFromMenuSection /> : <GuestFromMenuSection />}
                         </ul>
                     </nav>
                 </article>
@@ -29,7 +29,7 @@ const Header = ({
                 <article className="right-links">
                     <nav>
                         <ul className={styles.center}>
-                            {username ? <UsersFromAuthSection username={username} setUsername={setUsername} /> : <GuestFromAuthSection />}
+                            {user.username ? <UsersFromAuthSection /> : <GuestFromAuthSection />}
                         </ul>
                     </nav>
                 </article>

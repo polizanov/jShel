@@ -1,16 +1,16 @@
 import { useState } from 'react';
-import { useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom";
+import useAuthInfo from '../../../hooks/useAuthInfo';
 
 import FormError from '../../error/FormError/FormError';
 
 import styles from './Login.module.css';
 import { validateLogin } from '../../../services/validate/AuthValidateService';
-import { login, setUserAuthData } from '../../../services/authService'
+import { login } from '../../../services/authService'
 
-const Login = ({
-    setUsername
-}) => {
+const Login = () => {
     const [errorArr, setErrorArr] = useState([]);
+    const { addUserInfo } = useAuthInfo();
     const navigate = useNavigate();
 
     const onLoginSubmitHandler = (e) => {
@@ -23,8 +23,7 @@ const Login = ({
 
             login({ username, password })
                 .then(res => {
-                    setUserAuthData(res.sessionToken, res.objectId, res.username, res.email);
-                    setUsername(res.username);
+                    addUserInfo(res);
                     navigate('/home');
                 })
                 .catch(err => {

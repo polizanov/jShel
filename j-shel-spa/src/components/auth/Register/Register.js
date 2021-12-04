@@ -1,19 +1,19 @@
 import { Link } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router';
+import useAuthInfo from '../../../hooks/useAuthInfo';
 
 import styles from './Register.module.css';
 
 import FormError from '../../error/FormError/FormError';
 
 import { validateRegister } from '../../../services/validate/AuthValidateService';
-import { register, setUserAuthData } from '../../../services/authService';
+import { register } from '../../../services/authService';
 
 
-const Register = ({
-    setUsername
-}) => {
+const Register = () => {
     const [errorArr, setErrorArr] = useState([]);
+    const { addUserInfo } = useAuthInfo();
     const navigate = useNavigate();
 
     const onSubmitRegisterHandler = (e) => {
@@ -29,8 +29,7 @@ const Register = ({
 
             register({ email, username, password, rePassword })
                 .then(res => {
-                    setUserAuthData(res.sessionToken, res.objectId, res.username, res.email);
-                    setUsername(res.username);
+                    addUserInfo(res);
                     navigate('/home');
                 })
                 .catch(err => {
