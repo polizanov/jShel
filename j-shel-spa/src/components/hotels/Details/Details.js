@@ -1,7 +1,11 @@
+import { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import useRequest from '../../../hooks/useRequest/useRequest';
+import useAuthInfo from '../../../hooks/useAuthInfo';
 
 import styles from './Details.module.css';
+
+import DetailsButtons from './DetailsButtons/DetailsButtons';
 
 import RenderHotels from '../../../tools/RenderHotels';
 import rendStars from '../../../tools/rendStarsForHotelsComponent';
@@ -9,10 +13,17 @@ import rendStars from '../../../tools/rendStarsForHotelsComponent';
 import isAuth from '../../../hoc/isAuth';
 
 
+
 const Details = () => {
     const id = useParams().hotelId;
+    const [details, errorMessage, isLoading, setData] = useRequest("getDetails", [id], {});
+    const { user } = useAuthInfo();
 
-    let [details, errorMessage, isLoading] = useRequest("getDetails", [id], {});
+    const updateDetailsDataInLikeClicked = (obj) => { 
+        setData({...obj, likes: [...obj.likes, user.userId]});
+    };
+
+
     const jsx = <>
         <section className={styles.detailsComponent}>
             <article className={styles.hotelImgWrap}>
@@ -41,10 +52,7 @@ const Details = () => {
                 </article>
                 <article>
                     <p className={styles.buttonText}>{details.likes?.length} Likes</p>
-                    <a className={[styles.like, styles.buttons].join(" ")} href="#" id="like">LIKE</a>
-                    <a className={[styles.liked, styles.buttons].join(" ")} href="#" id="liked">LIKED</a>
-                    <Link to={`/edit/${details._id}`} className={[styles.edit, styles.buttons].join(" ")} id="edit">EDIT</Link>
-                    <a className={[styles.delete, styles.buttons].join(" ")} href="#" id="delete">DELETE</a>
+                    <DetailsButtons hotelObj={details} updateData={updateDetailsDataInLikeClicked} />
                 </article>
             </article>
         </section>

@@ -25,7 +25,7 @@ const useRequest = (name, depArray, initialStateValue) => {
             })
     }, depArray)
 
-    return [data, errorMessage, isLoading];
+    return [data, errorMessage, isLoading, setData];
 }
 
 export default useRequest

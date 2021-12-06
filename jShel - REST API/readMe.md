@@ -86,7 +86,7 @@ REST API for jShel – Single Page Application, created with React.
     sessionToken: true,
 }
 ```
-* **Like Hotel** - METHOD -> GET : "/like-hotel/:hotelId".
+* **Like Hotel** - METHOD -> POST : "/like-hotel/:hotelId".
 ```javascript
 {   
     sessionToken: true,

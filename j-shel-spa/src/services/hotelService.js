@@ -79,3 +79,14 @@ export function editHotel(data, hotelId, token) {
             return res.json
         })
 }
+
+export function likeHotel(hotelId, token) {
+    return fetch(`${url}${hotelLinks.likeHotel}/${hotelId}`, getOptions("post", token))
+        .then(res => {
+            if (!res.ok) {
+                return res.json()
+                    .then(err => { throw err })
+            }
+            return res.json();
+        })
+}

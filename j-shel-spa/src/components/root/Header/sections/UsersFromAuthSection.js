@@ -5,7 +5,7 @@ import useAuthInfo from '../../../../hooks/useAuthInfo';
 
 import styles from '../Header.module.css';
 
-import ErrorPage from '../../../error/ErrorPage/ErrorPage';
+import NoData from '../../../hotels/hotelToolsComponents/NoData/NoData';
 import { logout } from "../../../../services/authService"
 
 const UsersFromAuthSection = () => {
@@ -26,7 +26,13 @@ const UsersFromAuthSection = () => {
     }
 
     if (errorMessage) {
-        return <ErrorPage message={errorMessage} />
+        return <NoData 
+        header="Sorry, but your request could not be processed!"
+        content={errorMessage}
+        buttonValue="Click to refresh"
+        buttonLink="/" 
+        isNeedLink={false}
+        />
     }
 
     return (

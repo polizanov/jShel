@@ -1,0 +1,48 @@
+.buttons {
+    padding: 10px 23px;
+    margin: 0 10px;
+    border-radius: 8px;
+    text-decoration: none;  
+    color: white;
+}
+
+.like {
+    background-color: rgb(18, 215, 250);
+    border: 2px solid rgb(18, 215, 250);
+    cursor: pointer;
+}
+
+.like:hover {
+    color: rgb(18, 215, 250);
+    background-color: white;
+    border: 2px solid rgb(18, 215, 250)
+}
+
+.liked {
+    background-color: rgb(21, 138, 158);
+    cursor: auto;
+}
+
+.edit {
+    background-color: rgb(219, 199, 15);
+    border: 2px solid rgb(219, 199, 15);
+    cursor: pointer;
+}
+
+.edit:hover {
+    color: rgb(219, 199, 15);
+    background-color: white;
+    border: 2px solid rgb(219, 199, 15)
+}
+
+.delete {
+    background-color: rgb(209, 19, 19);
+    border: 2px solid rgb(209, 19, 19);
+    cursor: pointer;
+}
+
+.delete:hover {
+    color: rgb(209, 19, 19);
+    background-color: white;
+    border: 2px solid rgb(209, 19, 19);
+}

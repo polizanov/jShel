@@ -31,6 +31,7 @@
 
 .hotelDetails {
     padding: 20px;
+    width: 460px;
     background-image:
     linear-gradient(to top, rgb(255, 255, 255), rgba(0, 0, 65, 0.2));
     background-color: rgb(228, 222, 196);
@@ -76,50 +77,5 @@
     text-align: center;
 }
 
-.buttons {
-    padding: 10px 23px;
-    margin: 0 10px;
-    border-radius: 8px;
-    text-decoration: none;  
-    color: white;
-}
-
-.like {
-    background-color: rgb(18, 215, 250);
-    border: 2px solid rgb(18, 215, 250)
-}
-
-.like:hover {
-    color: rgb(18, 215, 250);
-    background-color: white;
-    border: 2px solid rgb(18, 215, 250)
-}
-
-.liked {
-    background-color: rgb(21, 138, 158);
-    cursor: auto;
-}
-
-.edit {
-    background-color: rgb(219, 199, 15);
-    border: 2px solid rgb(219, 199, 15)
-}
-
-.edit:hover {
-    color: rgb(219, 199, 15);
-    background-color: white;
-    border: 2px solid rgb(219, 199, 15)
-}
-
-.delete {
-    background-color: rgb(209, 19, 19);
-    border: 2px solid rgb(209, 19, 19);
-}
-
-.delete:hover {
-    color: rgb(209, 19, 19);
-    background-color: white;
-    border: 2px solid rgb(209, 19, 19);
-}
 
 
