@@ -90,3 +90,14 @@ export function likeHotel(hotelId, token) {
             return res.json();
         })
 }
+
+export function deleteHotel(hotelId, token) {
+    return fetch(`${url}${hotelLinks.deleteHotel}/${hotelId}`, getOptions("delete", token))
+        .then(res => {
+            if (!res.ok) {
+                return res.json()
+                    .then(err => { throw err })
+            }
+            return res.json();
+        })
+}

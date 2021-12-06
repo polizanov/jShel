@@ -9,11 +9,10 @@ import FormError from "../../../error/FormError/FormError";
 
 import { likeHotel } from "../../../../services/hotelService";
 
-const DetailsButtons = ({ hotelObj, updateData }) => {
+const DetailsButtons = ({ hotelObj, updateData, updateDeleteDialog }) => {
     const { user } = useAuthInfo();
     const [error, setError] = useState(null);
 
-    console.log(hotelObj)
     const onLikeClick = (e) => {
         e.preventDefault();
 
@@ -24,8 +23,12 @@ const DetailsButtons = ({ hotelObj, updateData }) => {
             })
             .catch(err => {
                 setError(err.message);
-            })
-            
+            })   
+    }
+
+    const onDeleteClick = (e) => {
+        e.preventDefault();
+        updateDeleteDialog();
     }
 
     if(error){
@@ -39,7 +42,7 @@ const DetailsButtons = ({ hotelObj, updateData }) => {
     if (user.userId == hotelObj.owner_id) {
         return <>
             <Link to={`/edit/${hotelObj._id}`} className={[styles.edit, styles.buttons].join(" ")} id="edit">EDIT</Link>
-            <a className={[styles.delete, styles.buttons].join(" ")} href="#" id="delete">DELETE</a>
+            <a onClick={onDeleteClick} className={[styles.delete, styles.buttons].join(" ")} id="delete">DELETE</a>
         </>
     }
 

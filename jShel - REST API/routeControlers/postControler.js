@@ -26,7 +26,6 @@ router.get("/gold-area", async (req, res) => {
 router.get("/details/:id", async (req, res) => {
     try {
         let data = await postService.getById(req.params.id);
-        console.log(data)
         res.status(201).json(data);
     } catch (err) {
         res.status(500).json({message: err.message});

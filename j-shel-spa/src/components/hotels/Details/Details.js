@@ -6,6 +6,7 @@ import useAuthInfo from '../../../hooks/useAuthInfo';
 import styles from './Details.module.css';
 
 import DetailsButtons from './DetailsButtons/DetailsButtons';
+import DeleteHotelDialog from './DeleteHotelDialog/DeleteHotelDialog';
 
 import RenderHotels from '../../../tools/RenderHotels';
 import rendStars from '../../../tools/rendStarsForHotelsComponent';
@@ -18,10 +19,15 @@ const Details = () => {
     const id = useParams().hotelId;
     const [details, errorMessage, isLoading, setData] = useRequest("getDetails", [id], {});
     const { user } = useAuthInfo();
+    const [deleteDialog, setDeleteDialog] = useState(false);
 
-    const updateDetailsDataInLikeClicked = (obj) => { 
-        setData({...obj, likes: [...obj.likes, user.userId]});
+    const updateDetailsDataInLikeClicked = (obj) => {
+        setData({ ...obj, likes: [...obj.likes, user.userId] });
     };
+
+    const updateDeleteDialog = () => {
+        setDeleteDialog(!deleteDialog);
+    }
 
 
     const jsx = <>
@@ -52,9 +58,19 @@ const Details = () => {
                 </article>
                 <article>
                     <p className={styles.buttonText}>{details.likes?.length} Likes</p>
-                    <DetailsButtons hotelObj={details} updateData={updateDetailsDataInLikeClicked} />
+                    <DetailsButtons
+                        hotelObj={details}
+                        updateData={updateDetailsDataInLikeClicked}
+                        updateDeleteDialog={updateDeleteDialog}
+                    />
                 </article>
             </article>
+            {deleteDialog ?
+                <DeleteHotelDialog
+                    obj={details}
+                    updateDialog={updateDeleteDialog}
+                />
+                : ""}
         </section>
     </>
 
