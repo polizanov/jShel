@@ -38,7 +38,7 @@ const UsersFromAuthSection = () => {
     return (
         <>
             <li className={styles.listItem}>
-                <Link to="/my-profile" className={styles.link} >HALLO {user.username}</Link>
+                <Link to="/my-profile" className={styles.link} >HELLO {user.username}</Link>
             </li>
             <li className={styles.listItem}>
                 <a onClick={onClickLogoutHandler} className={styles.link}>LOGOUT</a>
