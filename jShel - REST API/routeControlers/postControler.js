@@ -64,7 +64,6 @@ router.post("/like-hotel/:hotelId", isAuth, async (req, res) => {
         let data = await postService.likeHotel(res.locals.user.id, req.params.hotelId);
         res.status(201).json({message: "Liked", objectId: data._id});
     } catch (err) {
-        console.log(err);
         res.status(400).json({message: err.message});
     }
 })

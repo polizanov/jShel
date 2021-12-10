@@ -1,15 +1,16 @@
-import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { useNavigate } from 'react-router';
 import useAuthInfo from '../../../hooks/useAuthInfo';
+import { Link } from 'react-router-dom';
 
 import styles from './Register.module.css';
 
 import FormError from '../../error/FormError/FormError';
+import isGuest from '../../../hoc/isGuest';
 
 import { validateRegister } from '../../../services/validate/AuthValidateService';
 import { register } from '../../../services/authService';
-import isGuest from '../../../hoc/isGuest';
+
 
 
 const Register = () => {

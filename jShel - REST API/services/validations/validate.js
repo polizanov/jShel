@@ -51,7 +51,7 @@ function validateHotelData(data) {
     }
 
     if (typeof public !== "boolean") {
-        throw { message: "Bool must be a boolean" }
+        throw { message: "  Public must be a boolean" }
     }
 }
 

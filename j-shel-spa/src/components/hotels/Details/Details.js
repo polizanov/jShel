@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import useRequest from '../../../hooks/useRequest/useRequest';
 import useAuthInfo from '../../../hooks/useAuthInfo';
 
@@ -10,9 +10,6 @@ import DeleteHotelDialog from './DeleteHotelDialog/DeleteHotelDialog';
 
 import RenderHotels from '../../../tools/RenderHotels';
 import rendStars from '../../../tools/rendStarsForHotelsComponent';
-
-import isAuth from '../../../hoc/isAuth';
-
 
 
 const Details = () => {
@@ -83,4 +80,4 @@ const Details = () => {
 }
 
 
-export default isAuth(Details);
+export default Details;

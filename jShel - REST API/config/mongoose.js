@@ -7,9 +7,6 @@ mongoose.connect(`mongodb://localhost:${DB_PORT}/jShel`, {
     autoIndex: false
 });
 
-// require("../schemes/User");
-// require("../schemes/Post");
-
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function () {

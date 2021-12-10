@@ -1,13 +1,15 @@
 import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import useAuthInfo from '../../../hooks/useAuthInfo';
-
-import FormError from '../../error/FormError/FormError';
+import { Link } from 'react-router-dom';
 
 import styles from './Login.module.css';
+
+import FormError from '../../error/FormError/FormError';
+import isGuest from '../../../hoc/isGuest'
+
 import { validateLogin } from '../../../services/validate/AuthValidateService';
 import { login } from '../../../services/authService';
-import isGuest from '../../../hoc/isGuest'
 
 const Login = () => {
     const [errorArr, setErrorArr] = useState([]);
@@ -53,7 +55,7 @@ const Login = () => {
                 </label>
                 <article className={styles.paragraph}>
                     <p>
-                        Don't have an account? <a className={styles.link} href="#">Register now!</a>
+                        Don't have an account? <Link to="/register" className={styles.link} >Register now!</Link>
                     </p>
                 </article>
                 <input className={styles.submit} type="submit" value="LOGIN" />

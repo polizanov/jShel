@@ -1,11 +1,12 @@
 import useRequest from '../../../hooks/useRequest/useRequest'
-import RenderHotels from '../../../tools/RenderHotels';
 
 import styles from './ProfilePage.module.css'
 
 import NoData from '../../hotels/hotelToolsComponents/NoData/NoData';
 import Hotels from '../../hotels/hotelToolsComponents/Hotels/Hotels';
 import isAuth from '../../../hoc/isAuth'
+
+import RenderHotels from '../../../tools/RenderHotels';
 
 import profileAvatar from '../../../images/profileAvatar.jpg';
 

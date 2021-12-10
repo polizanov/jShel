@@ -36,7 +36,7 @@ const DetailsButtons = ({ hotelObj, updateData, updateDeleteDialog }) => {
     }
 
     if (!user.userId) {
-        return <Link to="/login" onClick={onLikeClick} className={[styles.like, styles.buttons].join(" ")} id="like">LOGIN TO LIKE</Link>
+        return <Link to="/login" className={[styles.like, styles.buttons].join(" ")} id="like">LOGIN TO LIKE</Link>
     }
 
     if (user.userId == hotelObj.owner_id) {

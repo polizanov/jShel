@@ -3,9 +3,9 @@ import { useNavigate } from "react-router";
 import useAuthInfo from "../../../hooks/useAuthInfo";
 
 import HotelForm from "../hotelToolsComponents/HotelForm/HotelForm";
+import isAuth from "../../../hoc/isAuth";
 import { validateHotelData } from "../../../services/validate/HotelValidateService";
 import { createHotel } from "../../../services/hotelService";
-import isAuth from "../../../hoc/isAuth";
 
 const CreateHotel = () => {
     const navigate = useNavigate();
