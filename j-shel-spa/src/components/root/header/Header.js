@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import useAuthInfo from '../../../hooks/useAuthInfo';
 
 import styles from './Header.module.css';
