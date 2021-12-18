@@ -16,8 +16,8 @@ const GuestHome = () => {
     const jsxNoData = <>
         <NoData header="Looks like no one has added a hotel yet!"
             content="Be the first!"
-            buttonValue="Add Hotel"
-            buttonLink="/create" />
+            buttonValue="Login and Add Hotel"
+            buttonLink="/login" />
     </>
 
     return (

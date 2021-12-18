@@ -4,7 +4,7 @@ import requestNames from './requestNames'
 
 
 const useRequest = (name, depArray, initialStateValue) => {
-    const {user} = useAuthInfo();
+    const { user } = useAuthInfo();
     const [data, setData] = useState(initialStateValue);
     const [errorMessage, setErrorMessage] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
@@ -14,10 +14,8 @@ const useRequest = (name, depArray, initialStateValue) => {
         setIsLoading(true);
         requestNames[name](id ? id : null, user.sessionToken)
             .then(effectData => {
-                setTimeout(() => {
-                    setData(effectData);
-                    setIsLoading(false);
-                }, 500)
+                setData(effectData);
+                setIsLoading(false);
             })
             .catch(err => {
                 setErrorMessage(err.message);
